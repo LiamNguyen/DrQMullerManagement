@@ -33,8 +33,8 @@ namespace iCareManagement
         }
 
         /*============================================================================
-                                    APPOINTMENT PAGE START
-          ============================================================================*/
+                            APPOINTMENT PAGE START
+        ============================================================================*/
 
         protected void OnPaging(object sender, GridViewPageEventArgs e)
         {
@@ -751,47 +751,53 @@ namespace iCareManagement
                 cmd.Dispose();
                 cmdV.Dispose();
                 cn.Close();
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds.Tables[0].Rows.Count == 1)
                 {
-                    cmb_DayOneManagement.ClearSelection();
-                    cmb_TimeOneManagement.ClearSelection();
-                    cmb_DayOneManagement.Items.FindByValue(ds.Tables[0].Rows[0][0].ToString()).Selected = true;
-                    cmb_TimeOneManagement.Items.FindByValue(ds.Tables[0].Rows[0][1].ToString()).Selected = true;
-                    cmb_DayTwoManagement.Items.FindByValue("8").Selected = true;
-                    cmb_TimeTwoManagement.Items.FindByValue("40").Selected = true;
-                    cmb_DayThreeManagement.Items.FindByValue("8").Selected = true;
-                    cmb_TimeThreeManagement.Items.FindByValue("40").Selected = true;
-                    verification_CodeManagement.Text = dt.Rows[0][0].ToString();
-
-                    if (ds.Tables[0].Rows.Count >= 2)
-                    {
-                        cmb_DayTwoManagement.ClearSelection();
-                        cmb_TimeTwoManagement.ClearSelection();
-                        cmb_DayTwoManagement.Items.FindByValue(ds.Tables[0].Rows[1][0].ToString()).Selected = true;
-                        cmb_TimeTwoManagement.Items.FindByValue(ds.Tables[0].Rows[1][1].ToString()).Selected = true;
-                    }
-
-                    if (ds.Tables[0].Rows.Count >= 3)
-                    {
-                        cmb_DayThreeManagement.ClearSelection();
-                        cmb_TimeThreeManagement.ClearSelection();
-                        cmb_DayThreeManagement.Items.FindByValue(ds.Tables[0].Rows[2][0].ToString()).Selected = true;
-                        cmb_TimeThreeManagement.Items.FindByValue(ds.Tables[0].Rows[2][1].ToString()).Selected = true;
-                    }
+                    bindFirstCmbManagement(ds);
                 }
-                else
+
+                if (ds.Tables[0].Rows.Count == 2)
                 {
-                    ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
-                    grid_AppointmentManagement.DataSource = ds;
-                    grid_AppointmentManagement.DataBind();
+                    bindFirstCmbManagement(ds);
+                    bindSecondCmbManagement(ds);
                 }
+
+                if (ds.Tables[0].Rows.Count == 3)
+                {
+                    bindFirstCmbManagement(ds);
+                    bindSecondCmbManagement(ds);
+                    bindThirdCmbManagement(ds);
+                }
+                verification_CodeManagement.Text = dt.Rows[0][0].ToString();
             }
             catch (Exception)
             {
-
                 throw;
             }
+        }
 
+        private void bindFirstCmbManagement(DataSet ds)
+        {
+            cmb_DayOneManagement.ClearSelection();
+            cmb_TimeOneManagement.ClearSelection();
+            cmb_DayOneManagement.Items.FindByValue(ds.Tables[0].Rows[0][0].ToString()).Selected = true;
+            cmb_TimeOneManagement.Items.FindByValue(ds.Tables[0].Rows[0][1].ToString()).Selected = true;
+        }
+
+        private void bindSecondCmbManagement(DataSet ds)
+        {
+            cmb_DayTwoManagement.ClearSelection();
+            cmb_TimeTwoManagement.ClearSelection();
+            cmb_DayTwoManagement.Items.FindByValue(ds.Tables[0].Rows[1][0].ToString()).Selected = true;
+            cmb_TimeTwoManagement.Items.FindByValue(ds.Tables[0].Rows[1][1].ToString()).Selected = true;
+        }
+
+        private void bindThirdCmbManagement(DataSet ds)
+        {
+            cmb_DayThreeManagement.ClearSelection();
+            cmb_TimeThreeManagement.ClearSelection();
+            cmb_DayThreeManagement.Items.FindByValue(ds.Tables[0].Rows[2][0].ToString()).Selected = true;
+            cmb_TimeThreeManagement.Items.FindByValue(ds.Tables[0].Rows[2][1].ToString()).Selected = true;
         }
 
         protected void grid_AppointmentManagement_PageIndexChanging(object sender, GridViewPageEventArgs e)
