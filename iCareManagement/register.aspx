@@ -57,17 +57,17 @@
                                         </span>
                                         <asp:TextBox ID="txt_Confirm" CssClass="form-control form-control-custom" TextMode="Password" placeholder="Xác nhận lại mật khẩu của bạn" runat="server"></asp:TextBox>
                                     </div>
-                                    <span id="helpblock_Confirm" class="help-block hidden" style="color:red; margin-left:60px">Mật khẩu không trùng khớp.</span>
-                                    <span id="helpblock_ConfirmEmp" class="help-block hidden" style="color:red; margin-left:60px">Xác nhận trống.</span>                                
+                                    <span id="helpblock_ConfirmMatch" class="help-block hidden" style="color:red; margin-left:60px">Xác nhận mật khẩu không trùng khớp.</span>
+                                    <span id="helpblock_ConfirmEmp" class="help-block hidden" style="color:red; margin-left:60px">Xác nhận mật khẩu trống.</span>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon input-group-addon-custom">
                                             <i class="glyphicon-custom glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i>
                                         </span>
-                                        <asp:TextBox ID="txt_AuthID" CssClass="form-control form-control-custom" placeholder="Số chứng minh nhân dân của bạn" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txt_AuthID" CssClass="form-control form-control-custom" placeholder="Mã bảo mật của bạn" runat="server"></asp:TextBox>
                                     </div>
-                                    <span id="helpblock_AuthIDEmp" class="help-block hidden" style="color:red;margin-left:60px">Số chứng minh nhân dân trống.</span>
+                                    <span id="helpblock_AuthIDEmp" class="help-block hidden" style="color:red;margin-left:60px">Mã bảo mật trống.</span>
                                 </div>
                                 <div class="field-pane">
                                 	<a href="login.aspx" style="color: purple"><b>Bạn đã có tài khoản rồi?</b></a>
@@ -84,60 +84,8 @@
         function focusToTxtBox() {
             document.getElementById("txt_Username").focus();
         }
-        function validate() {
-            var valid = true,
-                txt_Username = $("#txt_Username"),
-                txt_Password = $("#txt_Password"),
-                txt_Confirm = $("#txt_Confirm"),
-                txt_AuthID = $("#txt_AuthID"),
-                help_Username = $("#helpblock_Username"),
-                help_Password = $("#helpblock_Password"),
-                help_Confirm = $("#helpblock_Confirm"),
-                help_UsernameEmp = $("#helpblock_UsernameEmp"),
-                help_PasswordEmp = $("#helpblock_PasswordEmp"),
-                help_ConfirmEmp = $("#helpblock_ConfirmEmp"),
-                help_AuthIDEmp = $("#helpblock_AuthIDEmp");
-
-            function checkEmpty(o, h) {
-                console.log("In Func");
-                if (o.val() == "" || o.val() == null) {
-                    console.log("In if emp");
-                    h.removeClass("hidden");
-                    return false;
-                }
-                h.addClass("hidden");
-                return true;
-            }
-
-            function checkLength(o, min, max, h) {
-                if (o.val().length > max || o.val().length < min) {
-                    h.removeClass("hidden");
-                    return false;
-                } else {
-                    h.addClass("hidden");
-                    return true;
-                }
-            }
-
-            function checkRegexp(o, regexp, h) {
-                
-                if (!(regexp.test(o.val()))) {
-                    h.removeClass("hidden");
-                    return false;
-                } else {
-                    h.addClass("hidden");
-                    return true;
-                }
-            }
-
-            valid = valid && checkEmpty(txt_Username, help_UsernameEmp);
-            valid = valid && checkEmpty(txt_Password, help_PasswordEmp);
-            valid = valid && checkEmpty(txt_Confirm, help_ConfirmEmp);
-            valid = valid && checkEmpty(txt_AuthID, help_AuthIDEmp);
-        
-            return valid;
-        };
     </script>
+    <script src="assets/scripts/validateRegister.js"></script>
     <script>
         $(document).ready( function(){
             $.fn.snow({ minSize: 10, maxSize: 50, newOn: 100});
