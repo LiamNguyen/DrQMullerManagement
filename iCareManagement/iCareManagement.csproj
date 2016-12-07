@@ -79,6 +79,8 @@
     <Content Include="assets\scripts\app.js" />
     <Content Include="assets\scripts\jquery-1.10.2.min.map" />
     <Content Include="assets\scripts\datePicker.js" />
+    <Content Include="assets\scripts\validateLogin.js" />
+    <Content Include="assets\scripts\validateRegister.js" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\UATiCareManagement.pubxml" />
     <None Include="Web.Debug.config">

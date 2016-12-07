@@ -20,7 +20,7 @@ namespace iCareManagement
 
         protected void btn_Register_Click(object sender, EventArgs e)
         {
-
+            registration();
         }
 
         private void registration()
@@ -30,35 +30,60 @@ namespace iCareManagement
                 cn = new MySql.Data.MySqlClient.MySqlConnection(cnString);
 
                 MySql.Data.MySqlClient.MySqlCommand cmd;
-                MySql.Data.MySqlClient.MySqlDataAdapter ada;
-                MySql.Data.MySqlClient.MySqlCommand cmd1;
                 MySql.Data.MySqlClient.MySqlDataAdapter ada1;
+                MySql.Data.MySqlClient.MySqlDataAdapter ada2;
+                MySql.Data.MySqlClient.MySqlDataAdapter ada3;
 
-                ada = new MySql.Data.MySqlClient.MySqlDataAdapter();
-                ada1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
+                DataTable dt1 = new DataTable(); //Authentication
+                DataTable dt2 = new DataTable(); //Check Username Existence
+                DataTable dt3 = new DataTable(); //Check Authentication Code Existence
 
-                DataSet ds1 = new DataSet();
-                /* ============
-                    CONTINUE HERE
-                   ============*/
-                //string sql1 = @"Select ";
-                DataSet ds = new DataSet();
-                string sql = @"INSERT INTO tbl_Users(LOGIN_ID, PASSWORD, AUTHID)";
+                string sql1 = @"SELECT AUTHID FROM tbl_authentication WHERE AUTHID = '" + txt_AuthID.Text + "'";
+                string sql = @"INSERT INTO tbl_users(LOGIN_ID, PASSWORD, AUTHID) VALUES ('" + txt_Username.Text + "', '" + txt_Password.Text + "', '" + txt_AuthID.Text + "')";
+                string sql2 = @"SELECT USER_ID FROM tbl_users WHERE LOGIN_ID = '" + txt_Username.Text + "'";
+                string sql3 = @"SELECT USER_ID FROM tbl_users WHERE AUTHID = '" + txt_AuthID.Text + "'";
+
                 cn.Open();
+                ada1 = new MySql.Data.MySqlClient.MySqlDataAdapter(sql1, cn);
+                ada1.Fill(dt1);
+                ada1.Dispose();
+
+                ada2 = new MySql.Data.MySqlClient.MySqlDataAdapter(sql2, cn);
+                ada2.Fill(dt2);
+                ada2.Dispose();
+
+                ada3 = new MySql.Data.MySqlClient.MySqlDataAdapter(sql3, cn);
+                ada3.Fill(dt3);
+                ada3.Dispose();
+
+                if (dt1.Rows.Count <= 0)
+                {
+                    alert("Xin vui lòng kiểm tra lại mã bảo mật của bạn hoặc bạn không có quyền truy cập vào trang web này");
+                    return;
+                }
+
+                if (dt2.Rows.Count > 0)
+                {
+                    alert("Tên đăng nhập đã được sử dụng, xin vui lòng chọn tên đăng nhập khác");
+                }
+
+                if (dt3.Rows.Count > 0)
+                {
+                    alert("Xin vui lòng kiểm tra lại mã bảo mật");
+                }
+
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
-                ada.SelectCommand = cmd;
-                ada.Fill(ds);
-                ada.Dispose();
+                int result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                cn.Close();
-                if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                if (result == 1)
                 {
                     Server.Transfer("home.aspx");
                 }
                 else
                 {
-                    alert("Không thành công");
+                    alert("Đăng ký không thành công");
                 }
+                cn.Close();
             }
             catch
             {

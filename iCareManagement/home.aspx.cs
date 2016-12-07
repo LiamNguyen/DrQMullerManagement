@@ -33,8 +33,8 @@ namespace iCareManagement
         }
 
         /*============================================================================
-                                    APPOINTMENT PAGE START
-          ============================================================================*/
+                            APPOINTMENT PAGE START
+        ============================================================================*/
 
         protected void OnPaging(object sender, GridViewPageEventArgs e)
         {
@@ -52,11 +52,12 @@ namespace iCareManagement
                 MySql.Data.MySqlClient.MySqlDataAdapter ada;
                 ada = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 DataTable dt = new DataTable();
-                string sql = @"SELECT tbl_appointments.APPOINTMENT_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
+                string sql = @"SELECT tbl_appointments.APPOINTMENT_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_types.TYPE, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
                             FROM tbl_appointments INNER JOIN tbl_vouchers 
                             ON tbl_appointments.VOUCHER_ID = tbl_vouchers.VOUCHER_ID INNER JOIN tbl_locations
                             ON tbl_appointments.LOCATION_ID = tbl_locations.LOCATION_ID INNER JOIN tbl_customers
-                            ON tbl_appointments.CUSTOMER_ID = tbl_customers.CUSTOMER_ID
+                            ON tbl_appointments.CUSTOMER_ID = tbl_customers.CUSTOMER_ID INNER JOIN tbl_types
+                            ON tbl_appointments.TYPE_ID = tbl_types.TYPE_ID
                             WHERE tbl_appointments.ISCONFIRMED = '0' AND tbl_appointments.ACTIVE = '1'
                             ORDER BY tbl_appointments.CREATEDAT DESC";
                 cn.Open();
@@ -96,6 +97,7 @@ namespace iCareManagement
             cmb_Vouchers.Enabled = false;
             from.Enabled = false;
             to.Enabled = false;
+            cmb_Type.Enabled = false;
             cmb_DayOne.Enabled = false;
             cmb_DayTwo.Enabled = false;
             cmb_DayThree.Enabled = false;
@@ -109,6 +111,7 @@ namespace iCareManagement
             cmb_VouchersManagement.Enabled = false;
             fromManagement.Enabled = false;
             toManagement.Enabled = false;
+            cmb_TypeManagement.Enabled = false;
             cmb_DayOneManagement.Enabled = false;
             cmb_TimeOneManagement.Enabled = false;
             cmb_DayTwoManagement.Enabled = false;
@@ -124,6 +127,7 @@ namespace iCareManagement
             cmb_Vouchers.Enabled = true;
             from.Enabled = true;
             to.Enabled = true;
+            cmb_Type.Enabled = true;
             /*cmb_DayOne.Enabled = true;
             cmb_DayTwo.Enabled = true;
             cmb_DayThree.Enabled = true;
@@ -204,7 +208,7 @@ namespace iCareManagement
                 cmb_Vouchers.ClearSelection();
                 cmb_Vouchers.Items.FindByText(row.Cells[1].Text).Selected = true;
                 cmb_Locations.ClearSelection();
-                cmb_Locations.Items.FindByText(row.Cells[4].Text).Selected = true;
+                cmb_Locations.Items.FindByText(row.Cells[5].Text).Selected = true;
                 from.Text = row.Cells[2].Text;
                 to.Text = row.Cells[3].Text;
                 /*==================
@@ -217,21 +221,33 @@ namespace iCareManagement
                 MySql.Data.MySqlClient.MySqlCommand cmdV;
                 MySql.Data.MySqlClient.MySqlDataAdapter ada;
                 MySql.Data.MySqlClient.MySqlDataAdapter adaV;
+                MySql.Data.MySqlClient.MySqlDataAdapter adaT;
                 ada = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 adaV = new MySql.Data.MySqlClient.MySqlDataAdapter();
+                
                 DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
-                string sql = @"SELECT DAY_ID, TIME_ID FROM tbl_AppointmentSchedule WHERE APPOINTMENT_ID = " + appointment_ID + " ORDER BY DAY_ID ASC";
-                string sqlV = @"SELECT VERIFICATION_CODE FROM tbl_Appointments WHERE APPOINTMENT_ID = " + appointment_ID;
+                DataTable dtT = new DataTable();
+
+                string sql = @"SELECT DAY_ID, TIME_ID FROM tbl_appointmentschedule WHERE APPOINTMENT_ID = " + appointment_ID + " ORDER BY DAY_ID ASC";
+                string sqlV = @"SELECT VERIFICATION_CODE FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
+                string sqlT = @"SELECT TYPE_ID FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
                 cn.Open();
+
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
                 cmdV = new MySql.Data.MySqlClient.MySqlCommand(sqlV, cn);
+
                 ada.SelectCommand = cmd;
                 adaV.SelectCommand = cmdV;
+                adaT = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlT, cn);
+
                 ada.Fill(ds);
                 adaV.Fill(dt);
+                adaT.Fill(dtT);
+
                 ada.Dispose();
                 adaV.Dispose();
+                adaT.Dispose();
                 cmd.Dispose();
                 cmdV.Dispose();
                 cn.Close();
@@ -281,6 +297,9 @@ namespace iCareManagement
                     bindThirdCmb(ds);
                 }
                 verification_Code.Text = dt.Rows[0][0].ToString();
+                int value = (Convert.ToInt32(dtT.Rows[0][0].ToString()) - 1);
+                cmb_Type.ClearSelection();
+                cmb_Type.Items[value].Selected = true;
             }
             catch (Exception)
             {
@@ -405,44 +424,70 @@ namespace iCareManagement
             {
                 cn = new MySql.Data.MySqlClient.MySqlConnection(cnString);
 
-                MySql.Data.MySqlClient.MySqlCommand cmdT;
-                MySql.Data.MySqlClient.MySqlCommand cmdD;
+                MySql.Data.MySqlClient.MySqlDataAdapter adaV;
+                MySql.Data.MySqlClient.MySqlDataAdapter adaL;
                 MySql.Data.MySqlClient.MySqlDataAdapter adaT;
-                MySql.Data.MySqlClient.MySqlDataAdapter adaD;
-                adaT = new MySql.Data.MySqlClient.MySqlDataAdapter();
-                adaD = new MySql.Data.MySqlClient.MySqlDataAdapter();
+
+                DataTable dtV = new DataTable();
+                DataTable dtL = new DataTable();
                 DataTable dtT = new DataTable();
-                DataTable dtD = new DataTable();
-                string sqlT = @"SELECT VOUCHER_ID, VOUCHER FROM tbl_vouchers ORDER BY VOUCHER_ID ASC";
-                string sqlD = @"SELECT LOCATION_ID, LOCATION_NAME FROM tbl_locations ORDER BY LOCATION_ID ASC";
+
+                string sqlV = @"SELECT VOUCHER_ID, VOUCHER FROM tbl_vouchers ORDER BY VOUCHER_ID ASC";
+                string sqlL = @"SELECT LOCATION_ID, LOCATION_NAME FROM tbl_locations ORDER BY LOCATION_ID ASC";
+                string sqlT = @"SELECT TYPE_ID, TYPE FROM tbl_types ORDER BY TYPE_ID ASC";
+
                 cn.Open();
-                cmdT = new MySql.Data.MySqlClient.MySqlCommand(sqlT, cn);
-                cmdD = new MySql.Data.MySqlClient.MySqlCommand(sqlD, cn);
 
-                adaT.SelectCommand = cmdT;
-                adaD.SelectCommand = cmdD;
+                adaV = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlV, cn);
+                adaL = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlL, cn);
+                adaT = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlT, cn);
 
+                adaV.Fill(dtV);
+                adaL.Fill(dtL);
                 adaT.Fill(dtT);
-                adaD.Fill(dtD);
+
+                adaV.Dispose();
+                adaL.Dispose();
                 adaT.Dispose();
-                adaD.Dispose();
-                cmdT.Dispose();
-                cmdD.Dispose();
+
                 cn.Close();
-                if (dtT.Rows.Count > 0)
+                if (dtV.Rows.Count > 0)
                 {
-                    cmb_Vouchers.DataSource = dtT;
+                    cmb_Vouchers.DataSource = dtV;
                     cmb_Vouchers.DataValueField = "VOUCHER_ID";
                     cmb_Vouchers.DataTextField = "VOUCHER";
                     cmb_Vouchers.DataBind();
+
+                    cmb_VouchersManagement.DataSource = dtV;
+                    cmb_VouchersManagement.DataValueField = "VOUCHER_ID";
+                    cmb_VouchersManagement.DataTextField = "VOUCHER";
+                    cmb_VouchersManagement.DataBind();
                 }
 
-                if (dtD.Rows.Count > 0)
+                if (dtL.Rows.Count > 0)
                 {
-                    cmb_Locations.DataSource = dtD;
+                    cmb_Locations.DataSource = dtL;
                     cmb_Locations.DataValueField = "LOCATION_ID";
                     cmb_Locations.DataTextField = "LOCATION_NAME";
                     cmb_Locations.DataBind();
+
+                    cmb_LocationsManagement.DataSource = dtL;
+                    cmb_LocationsManagement.DataValueField = "LOCATION_ID";
+                    cmb_LocationsManagement.DataTextField = "LOCATION_NAME";
+                    cmb_LocationsManagement.DataBind();
+                }
+
+                if (dtT.Rows.Count > 0)
+                {
+                    cmb_Type.DataSource = dtT;
+                    cmb_Type.DataValueField = "TYPE_ID";
+                    cmb_Type.DataTextField = "TYPE";
+                    cmb_Type.DataBind();
+
+                    cmb_TypeManagement.DataSource = dtT;
+                    cmb_TypeManagement.DataValueField = "TYPE_ID";
+                    cmb_TypeManagement.DataTextField = "TYPE";
+                    cmb_TypeManagement.DataBind();
                 }
 
                 isFirstLoad.Value = "false";
@@ -494,15 +539,12 @@ namespace iCareManagement
 
                 MySql.Data.MySqlClient.MySqlCommand cmd;
                 string sql = @"UPDATE tbl_appointments SET VOUCHER_ID = " + cmb_Vouchers.SelectedValue + ", LOCATION_ID = "
-                    + cmb_Locations.SelectedValue + ", START_DATE = DATE_FORMAT(STR_TO_DATE('" + from.Text + "', '%d.%m.%Y'), '%Y.%m.%d'), EXPIRED_DATE = DATE_FORMAT(STR_TO_DATE('" + to.Text + "', '%d.%m.%Y'), '%Y.%m.%d') WHERE APPOINTMENT_ID = "
+                    + cmb_Locations.SelectedValue + ", START_DATE = DATE_FORMAT(STR_TO_DATE('" + from.Text + "', '%d.%m.%Y'), '%Y.%m.%d'), EXPIRED_DATE = DATE_FORMAT(STR_TO_DATE('" 
+                    + to.Text + "', '%d.%m.%Y'), '%Y.%m.%d'), TYPE_ID = '" + cmb_Type.SelectedValue + "' WHERE APPOINTMENT_ID = "
                     + Session["APPOINTMENT_ID"];
                 cn.Open();
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
                 int result = cmd.ExecuteNonQuery();
-                if (result == 1)
-                {
-                    alert("Cập nhật thành công");
-                }
                 cmd.Dispose();
                 cn.Close();
             }
@@ -531,11 +573,12 @@ namespace iCareManagement
                 MySql.Data.MySqlClient.MySqlDataAdapter ada;
                 ada = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 DataSet ds = new DataSet();
-                string sql = @"SELECT tbl_appointments.APPOINTMENT_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
+                string sql = @"SELECT tbl_appointments.APPOINTMENT_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_types.TYPE, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
                             FROM tbl_appointments INNER JOIN tbl_vouchers 
                             ON tbl_appointments.VOUCHER_ID = tbl_vouchers.VOUCHER_ID INNER JOIN tbl_locations
                             ON tbl_appointments.LOCATION_ID = tbl_locations.LOCATION_ID INNER JOIN tbl_customers
-                            ON tbl_appointments.CUSTOMER_ID = tbl_customers.CUSTOMER_ID
+                            ON tbl_appointments.CUSTOMER_ID = tbl_customers.CUSTOMER_ID INNER JOIN tbl_types
+                            ON tbl_appointments.TYPE_ID = tbl_types.TYPE_ID
                             WHERE tbl_appointments.ISCONFIRMED = '1' AND tbl_appointments.ACTIVE = '1'
                             ORDER BY tbl_appointments.CREATEDAT DESC";
                 cn.Open();
@@ -720,9 +763,11 @@ namespace iCareManagement
                 cmb_VouchersManagement.ClearSelection();
                 cmb_VouchersManagement.Items.FindByText(row.Cells[1].Text).Selected = true;
                 cmb_LocationsManagement.ClearSelection();
-                cmb_LocationsManagement.Items.FindByText(row.Cells[4].Text).Selected = true;
+                cmb_LocationsManagement.Items.FindByText(row.Cells[5].Text).Selected = true;
                 fromManagement.Text = row.Cells[2].Text;
                 toManagement.Text = row.Cells[3].Text;
+                cmb_TypeManagement.ClearSelection();
+                cmb_TypeManagement.Items.FindByText(row.Cells[4].Text).Selected = true;
                 /*==================
                   Time Panel
                   ==================
@@ -751,47 +796,53 @@ namespace iCareManagement
                 cmd.Dispose();
                 cmdV.Dispose();
                 cn.Close();
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds.Tables[0].Rows.Count == 1)
                 {
-                    cmb_DayOneManagement.ClearSelection();
-                    cmb_TimeOneManagement.ClearSelection();
-                    cmb_DayOneManagement.Items.FindByValue(ds.Tables[0].Rows[0][0].ToString()).Selected = true;
-                    cmb_TimeOneManagement.Items.FindByValue(ds.Tables[0].Rows[0][1].ToString()).Selected = true;
-                    cmb_DayTwoManagement.Items.FindByValue("8").Selected = true;
-                    cmb_TimeTwoManagement.Items.FindByValue("40").Selected = true;
-                    cmb_DayThreeManagement.Items.FindByValue("8").Selected = true;
-                    cmb_TimeThreeManagement.Items.FindByValue("40").Selected = true;
-                    verification_CodeManagement.Text = dt.Rows[0][0].ToString();
-
-                    if (ds.Tables[0].Rows.Count >= 2)
-                    {
-                        cmb_DayTwoManagement.ClearSelection();
-                        cmb_TimeTwoManagement.ClearSelection();
-                        cmb_DayTwoManagement.Items.FindByValue(ds.Tables[0].Rows[1][0].ToString()).Selected = true;
-                        cmb_TimeTwoManagement.Items.FindByValue(ds.Tables[0].Rows[1][1].ToString()).Selected = true;
-                    }
-
-                    if (ds.Tables[0].Rows.Count >= 3)
-                    {
-                        cmb_DayThreeManagement.ClearSelection();
-                        cmb_TimeThreeManagement.ClearSelection();
-                        cmb_DayThreeManagement.Items.FindByValue(ds.Tables[0].Rows[2][0].ToString()).Selected = true;
-                        cmb_TimeThreeManagement.Items.FindByValue(ds.Tables[0].Rows[2][1].ToString()).Selected = true;
-                    }
+                    bindFirstCmbManagement(ds);
                 }
-                else
+
+                if (ds.Tables[0].Rows.Count == 2)
                 {
-                    ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
-                    grid_AppointmentManagement.DataSource = ds;
-                    grid_AppointmentManagement.DataBind();
+                    bindFirstCmbManagement(ds);
+                    bindSecondCmbManagement(ds);
                 }
+
+                if (ds.Tables[0].Rows.Count == 3)
+                {
+                    bindFirstCmbManagement(ds);
+                    bindSecondCmbManagement(ds);
+                    bindThirdCmbManagement(ds);
+                }
+                verification_CodeManagement.Text = dt.Rows[0][0].ToString();
             }
             catch (Exception)
             {
-
                 throw;
             }
+        }
 
+        private void bindFirstCmbManagement(DataSet ds)
+        {
+            cmb_DayOneManagement.ClearSelection();
+            cmb_TimeOneManagement.ClearSelection();
+            cmb_DayOneManagement.Items.FindByValue(ds.Tables[0].Rows[0][0].ToString()).Selected = true;
+            cmb_TimeOneManagement.Items.FindByValue(ds.Tables[0].Rows[0][1].ToString()).Selected = true;
+        }
+
+        private void bindSecondCmbManagement(DataSet ds)
+        {
+            cmb_DayTwoManagement.ClearSelection();
+            cmb_TimeTwoManagement.ClearSelection();
+            cmb_DayTwoManagement.Items.FindByValue(ds.Tables[0].Rows[1][0].ToString()).Selected = true;
+            cmb_TimeTwoManagement.Items.FindByValue(ds.Tables[0].Rows[1][1].ToString()).Selected = true;
+        }
+
+        private void bindThirdCmbManagement(DataSet ds)
+        {
+            cmb_DayThreeManagement.ClearSelection();
+            cmb_TimeThreeManagement.ClearSelection();
+            cmb_DayThreeManagement.Items.FindByValue(ds.Tables[0].Rows[2][0].ToString()).Selected = true;
+            cmb_TimeThreeManagement.Items.FindByValue(ds.Tables[0].Rows[2][1].ToString()).Selected = true;
         }
 
         protected void grid_AppointmentManagement_PageIndexChanging(object sender, GridViewPageEventArgs e)
