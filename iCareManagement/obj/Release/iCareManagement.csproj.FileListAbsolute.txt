@@ -1,0 +1,12 @@
+D:\UATiCareManagement\iCareManagement\bin\iCareManagement.dll.config
+D:\UATiCareManagement\iCareManagement\bin\iCareManagement.dll
+D:\UATiCareManagement\iCareManagement\bin\iCareManagement.pdb
+D:\UATiCareManagement\iCareManagement\bin\MySql.Data.dll
+D:\UATiCareManagement\iCareManagement\bin\MySql.Web.dll
+D:\UATiCareManagement\iCareManagement\bin\Newtonsoft.Json.dll
+D:\UATiCareManagement\iCareManagement\bin\MySql.Data.xml
+D:\UATiCareManagement\iCareManagement\bin\MySql.Web.xml
+D:\UATiCareManagement\iCareManagement\bin\Newtonsoft.Json.xml
+D:\UATiCareManagement\iCareManagement\obj\Release\iCareManagement.dll
+D:\UATiCareManagement\iCareManagement\obj\Release\iCareManagement.pdb
+D:\UATiCareManagement\iCareManagement\obj\Release\iCareManagement.csprojResolveAssemblyReference.cache

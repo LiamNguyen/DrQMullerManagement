@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AF5022CF-1666-4070-BA67-9183E0F4DB76}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iCareManagement</RootNamespace>
+    <AssemblyName>iCareManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\Pacifico.ttf" />
+    <Content Include="assets\fonts\Villa.ttf" />
+    <Content Include="assets\images\bg_ChristmasTheme.jpg" />
+    <Content Include="assets\scripts\app.js" />
+    <Content Include="assets\scripts\jquery-1.10.2.min.map" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\UATiCareManagement.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\bootstrap\bootstrap.css" />
+    <Content Include="assets\bootstrap\bootstrap.min.css" />
+    <Content Include="assets\bootstrap\Site.css" />
+    <Content Include="assets\css\jquery-ui.css" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\images\account.png" />
+    <Content Include="assets\images\bg.jpg" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\notification.png" />
+    <Content Include="assets\scripts\base.js" />
+    <Content Include="assets\scripts\bootstrap.js" />
+    <Content Include="assets\scripts\bootstrap.min.js" />
+    <None Include="assets\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="assets\scripts\jquery-1.10.2.js" />
+    <Content Include="assets\scripts\jquery-1.10.2.min.js" />
+    <Content Include="assets\scripts\jquery-ui.js" />
+    <None Include="assets\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="assets\scripts\jquery.validate.js" />
+    <Content Include="assets\scripts\jquery.validate.min.js" />
+    <Content Include="assets\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="assets\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="assets\scripts\JQWidgets\jqx.base.css" />
+    <Content Include="assets\scripts\JQWidgets\jqx.web.css" />
+    <Content Include="assets\scripts\JQWidgets\jqxangular.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxbuttongroup.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxbuttons.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxcalendar.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxcheckbox.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxcolorpicker.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxcombobox.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxcore.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxdata.export.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxdata.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxdatatable.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxdate.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxdatetimeinput.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxdropdownlist.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxgrid.columnsreorder.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxgrid.columnsresize.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxgrid.edit.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxgrid.export.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxgrid.filter.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxgrid.grouping.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxgrid.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxgrid.selection.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxgrid.sort.js" />
+    <Content Include="assets\scripts\JQWidgets\jqxnotification.js" />
+    <Content Include="assets\scripts\modernizr-2.6.2.js" />
+    <Content Include="assets\scripts\prettify-1.0.min.js" />
+    <Content Include="assets\scripts\respond.js" />
+    <Content Include="assets\scripts\respond.min.js" />
+    <Content Include="home.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="profile.aspx" />
+    <Content Include="register.aspx" />
+    <Content Include="reset.aspx" />
+    <Content Include="style.css" />
+    <Content Include="TestDB.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reset.aspx.cs">
+      <DependentUpon>reset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reset.aspx.designer.cs">
+      <DependentUpon>reset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestDB.aspx.cs">
+      <DependentUpon>TestDB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestDB.aspx.designer.cs">
+      <DependentUpon>TestDB.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4590</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1839/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
