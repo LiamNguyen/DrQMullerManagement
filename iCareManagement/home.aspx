@@ -126,7 +126,6 @@
                                                     </span>
                                                     <div class="selectContainer">
                                                         <asp:DropDownList ID="cmb_Vouchers" CssClass="form-control form-control-custom" runat="server">
-                                                            <asp:ListItem Text="Chọn" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -136,7 +135,6 @@
                                                     </span>
                                                     <div class="selectContainer">
                                                         <asp:DropDownList ID="cmb_Locations" CssClass="form-control form-control-custom" runat="server">
-                                                            <asp:ListItem Text="Chọn" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -151,6 +149,15 @@
                                                         <label class="control-label">Ngày kết thúc</label>
                                                     </span>
                                                     <asp:TextBox ID="to" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon input-group-addon-custom input-group-addon-content">
+                                                        <label class="control-label">Loại</label>
+                                                    </span>
+                                                    <div class="selectContainer">
+                                                        <asp:DropDownList ID="cmb_Type" CssClass="form-control form-control-custom" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
                                                 </div>
                                                 <div class="input-group">
                                                     <asp:Button ID="btn_EditGeneralAppInfo" CssClass="btn btn-primary" OnClick="btn_EditGeneralAppInfo_Click" runat="server" Text="Chỉnh sửa" />
@@ -247,6 +254,7 @@
                                             <asp:BoundField DataField="VOUCHER" HeaderText="Liệu trình" />
                                             <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                             <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
+                                            <asp:BoundField DataField="TYPE" HeaderText="Loại" />
                                             <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
                                             <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
                                             <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm:ss}" htmlencode="false"/>
@@ -288,20 +296,17 @@
                                                     <span class="input-group-addon input-group-addon-custom input-group-addon-content">
                                                         <label class="control-label">Liệu trình</label>
                                                     </span>
-                                                        <div class="selectContainer">
-                                                            <asp:DropDownList ID="cmb_VouchersManagement" CssClass="form-control form-control-custom" runat="server">
-                                                                <asp:ListItem Text="VIP Booking" Value="vip"></asp:ListItem>
-                                                                <asp:ListItem Text="ECO Booking" Value="eco"></asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </div>
+                                                    <div class="selectContainer">
+                                                        <asp:DropDownList ID="cmb_VouchersManagement" CssClass="form-control form-control-custom" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
                                                 </div>
                                                 <div class="input-group">
                                                     <span class="input-group-addon input-group-addon-custom input-group-addon-content">
                                                         <label class="control-label">Trung tâm</label>
                                                     </span>
                                                     <div class="selectContainer">
-                                                     <asp:DropDownList ID="cmb_LocationsManagement" CssClass="form-control form-control-custom" runat="server">
-                                                        <asp:ListItem Value="1" Text="Trần Quang Diệu"></asp:ListItem>
+                                                        <asp:DropDownList ID="cmb_LocationsManagement" CssClass="form-control form-control-custom" runat="server">
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -316,6 +321,15 @@
                                                         <label class="control-label">Ngày kết thúc</label>
                                                     </span>
                                                     <asp:TextBox ID="toManagement" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon input-group-addon-custom input-group-addon-content">
+                                                        <label class="control-label">Loại</label>
+                                                    </span>
+                                                    <div class="selectContainer">
+                                                        <asp:DropDownList ID="cmb_TypeManagement" CssClass="form-control form-control-custom" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </ContentTemplate>
@@ -405,6 +419,7 @@
                                         <asp:BoundField DataField="VOUCHER" HeaderText="Liệu trình" />
                                         <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                         <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
+                                        <asp:BoundField DataField="TYPE" HeaderText="Loại" />
                                         <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
                                         <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
                                         <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm:ss}" htmlencode="false"/>

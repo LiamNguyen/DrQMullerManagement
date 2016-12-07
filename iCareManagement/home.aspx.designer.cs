@@ -85,6 +85,15 @@ namespace iCareManagement {
         protected global::System.Web.UI.WebControls.TextBox to;
         
         /// <summary>
+        /// cmb_Type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmb_Type;
+        
+        /// <summary>
         /// btn_EditGeneralAppInfo control.
         /// </summary>
         /// <remarks>
@@ -263,6 +272,15 @@ namespace iCareManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox toManagement;
+        
+        /// <summary>
+        /// cmb_TypeManagement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmb_TypeManagement;
         
         /// <summary>
         /// UpdatePanel5 control.
