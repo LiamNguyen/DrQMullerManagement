@@ -18,6 +18,7 @@ namespace iCareManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            deployTimeDB();
             getAppointments();
             getAppointmentsManagement();
             if (isFirstLoad.Value == "true")
@@ -854,5 +855,56 @@ namespace iCareManagement
         /*============================================================================
                                APPOINTMENT MANAGEMENT PAGE END
           ============================================================================*/
+
+        private string createTimeDB()
+        {
+            List<string> hours = new List<string>();
+            List<string> minutes = new List<string>();
+            string sqlValues = "";
+
+            int h = 6;
+            minutes.Add("00");
+            minutes.Add("15");
+            minutes.Add("30");
+            minutes.Add("45");
+
+            while (h < 23)
+            {
+                string strH = h.ToString();
+                if (strH.Length < 2)
+                {
+                    strH = "0" + strH;
+                }
+                hours.Add(strH);
+                h++;
+            }
+
+            foreach (string hour in hours)
+            {
+                foreach (string minute in minutes)
+                {
+                    if (hour == "22" && minute == "15")
+                        break;
+                    sqlValues += ("('" + hour + ":" + minute + "')");
+                    if (hour == "22" && minute == "00")
+                        break;
+                    sqlValues += ",";
+                }
+            }
+
+            return sqlValues;
+        }
+
+        private void deployTimeDB()
+        {
+            cn = new MySql.Data.MySqlClient.MySqlConnection(cnString);
+
+            String sql = "INSERT INTO tbl_time (TIME) VALUES " + createTimeDB();
+            MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
+            cn.Open();
+            cmd.ExecuteNonQuery();
+            cn.Close();
+            cmd.Dispose();
+        }
     }
 }
