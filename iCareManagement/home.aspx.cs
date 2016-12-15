@@ -18,7 +18,7 @@ namespace iCareManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            deployTimeDB();
+            //deployTimeDB();
             getAppointments();
             getAppointmentsManagement();
             if (isFirstLoad.Value == "true")
@@ -402,11 +402,11 @@ namespace iCareManagement
                     cmb_DayThree.DataBind();
 
                     cmb_DayOne.Items.FindByValue("8").Selected = true;
-                    cmb_TimeOne.Items.FindByValue("40").Selected = true;
+                    cmb_TimeOne.Items.FindByValue("66").Selected = true;
                     cmb_DayTwo.Items.FindByValue("8").Selected = true;
-                    cmb_TimeTwo.Items.FindByValue("40").Selected = true;
+                    cmb_TimeTwo.Items.FindByValue("66").Selected = true;
                     cmb_DayThree.Items.FindByValue("8").Selected = true;
-                    cmb_TimeThree.Items.FindByValue("40").Selected = true;
+                    cmb_TimeThree.Items.FindByValue("66").Selected = true;
                 }
             }
             catch (Exception)
@@ -685,11 +685,11 @@ namespace iCareManagement
                     cmb_DayThreeManagement.DataBind();
 
                     cmb_DayOneManagement.Items.FindByValue("8").Selected = true;
-                    cmb_TimeOneManagement.Items.FindByValue("40").Selected = true;
+                    cmb_TimeOneManagement.Items.FindByValue("66").Selected = true;
                     cmb_DayTwoManagement.Items.FindByValue("8").Selected = true;
-                    cmb_TimeTwoManagement.Items.FindByValue("40").Selected = true;
+                    cmb_TimeTwoManagement.Items.FindByValue("66").Selected = true;
                     cmb_DayThreeManagement.Items.FindByValue("8").Selected = true;
-                    cmb_TimeThreeManagement.Items.FindByValue("40").Selected = true;
+                    cmb_TimeThreeManagement.Items.FindByValue("66").Selected = true;
                 }
             }
             catch (Exception)
