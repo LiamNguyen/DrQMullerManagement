@@ -257,7 +257,7 @@
                                             <asp:BoundField DataField="TYPE" HeaderText="Loại" />
                                             <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
                                             <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
-                                            <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm:ss}" htmlencode="false"/>
+                                            <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm tt}" htmlencode="false"/>
                                         </Columns>
                                         <selectedrowstyle backcolor="Purple"
                                         forecolor="White"
