@@ -18,7 +18,7 @@ namespace iCareManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            deployTimeDB();
+            //deployTimeDB();
             getAppointments();
             getAppointmentsManagement();
             if (isFirstLoad.Value == "true")
@@ -205,7 +205,7 @@ namespace iCareManagement
                   Detail Panel
                   ==================
                  */
-                txt_Customer.Text = row.Cells[5].Text;
+                txt_Customer.Text = row.Cells[6].Text;
                 cmb_Vouchers.ClearSelection();
                 cmb_Vouchers.Items.FindByText(row.Cells[1].Text).Selected = true;
                 cmb_Locations.ClearSelection();
@@ -346,8 +346,8 @@ namespace iCareManagement
                 adaD = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 DataTable dtT = new DataTable();
                 DataTable dtD = new DataTable();
-                string sqlT = @"SELECT TIME_ID, TIME FROM tbl_Time ORDER BY TIME ASC";
-                string sqlD = @"SELECT DAY_ID, DAY FROM tbl_WeekDays ORDER BY DAY_ID ASC";
+                string sqlT = @"SELECT TIME_ID, TIME FROM tbl_time ORDER BY TIME ASC";
+                string sqlD = @"SELECT DAY_ID, DAY FROM tbl_weekdays ORDER BY DAY_ID ASC";
                 cn.Open();
                 cmdT = new MySql.Data.MySqlClient.MySqlCommand(sqlT, cn);
                 cmdD = new MySql.Data.MySqlClient.MySqlCommand(sqlD, cn);
@@ -402,11 +402,11 @@ namespace iCareManagement
                     cmb_DayThree.DataBind();
 
                     cmb_DayOne.Items.FindByValue("8").Selected = true;
-                    cmb_TimeOne.Items.FindByValue("40").Selected = true;
+                    cmb_TimeOne.Items.FindByValue("66").Selected = true;
                     cmb_DayTwo.Items.FindByValue("8").Selected = true;
-                    cmb_TimeTwo.Items.FindByValue("40").Selected = true;
+                    cmb_TimeTwo.Items.FindByValue("66").Selected = true;
                     cmb_DayThree.Items.FindByValue("8").Selected = true;
-                    cmb_TimeThree.Items.FindByValue("40").Selected = true;
+                    cmb_TimeThree.Items.FindByValue("66").Selected = true;
                 }
             }
             catch (Exception)
@@ -629,8 +629,8 @@ namespace iCareManagement
                 adaD = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 DataTable dtT = new DataTable();
                 DataTable dtD = new DataTable();
-                string sqlT = @"SELECT TIME_ID, TIME FROM tbl_Time ORDER BY TIME ASC";
-                string sqlD = @"SELECT DAY_ID, DAY FROM tbl_WeekDays ORDER BY DAY_ID ASC";
+                string sqlT = @"SELECT TIME_ID, TIME FROM tbl_time ORDER BY TIME ASC";
+                string sqlD = @"SELECT DAY_ID, DAY FROM tbl_weekdays ORDER BY DAY_ID ASC";
                 cn.Open();
                 cmdT = new MySql.Data.MySqlClient.MySqlCommand(sqlT, cn);
                 cmdD = new MySql.Data.MySqlClient.MySqlCommand(sqlD, cn);
@@ -685,11 +685,11 @@ namespace iCareManagement
                     cmb_DayThreeManagement.DataBind();
 
                     cmb_DayOneManagement.Items.FindByValue("8").Selected = true;
-                    cmb_TimeOneManagement.Items.FindByValue("40").Selected = true;
+                    cmb_TimeOneManagement.Items.FindByValue("66").Selected = true;
                     cmb_DayTwoManagement.Items.FindByValue("8").Selected = true;
-                    cmb_TimeTwoManagement.Items.FindByValue("40").Selected = true;
+                    cmb_TimeTwoManagement.Items.FindByValue("66").Selected = true;
                     cmb_DayThreeManagement.Items.FindByValue("8").Selected = true;
-                    cmb_TimeThreeManagement.Items.FindByValue("40").Selected = true;
+                    cmb_TimeThreeManagement.Items.FindByValue("66").Selected = true;
                 }
             }
             catch (Exception)
@@ -760,7 +760,7 @@ namespace iCareManagement
                   Detail Panel
                   ==================
                  */
-                txt_CustomerManagement.Text = row.Cells[5].Text;
+                txt_CustomerManagement.Text = row.Cells[6].Text;
                 cmb_VouchersManagement.ClearSelection();
                 cmb_VouchersManagement.Items.FindByText(row.Cells[1].Text).Selected = true;
                 cmb_LocationsManagement.ClearSelection();
@@ -899,7 +899,7 @@ namespace iCareManagement
         {
             cn = new MySql.Data.MySqlClient.MySqlConnection(cnString);
 
-            String sql = "INSERT INTO tbl_time (TIME) VALUES " + createTimeDB();
+            String sql = "INSERT INTO icaredb.tbl_time (TIME) VALUES " + createTimeDB();
             MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
             cn.Open();
             cmd.ExecuteNonQuery();
