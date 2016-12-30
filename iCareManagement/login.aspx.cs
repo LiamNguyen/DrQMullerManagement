@@ -53,7 +53,7 @@ namespace iCareManagement
                 }
                 else
                 {
-                    alert("Không thành công");
+                    alert("Tên đăng nhập hoặc mật khẩu sai");
                 }
             }
             catch
