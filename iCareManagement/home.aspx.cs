@@ -783,8 +783,8 @@ namespace iCareManagement
                 adaV = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
-                string sql = @"SELECT DAY_ID, TIME_ID FROM tbl_AppointmentSchedule WHERE APPOINTMENT_ID = " + appointment_ID + " ORDER BY DAY_ID ASC";
-                string sqlV = @"SELECT VERIFICATION_CODE FROM tbl_Appointments WHERE APPOINTMENT_ID = " + appointment_ID;
+                string sql = @"SELECT DAY_ID, TIME_ID FROM tbl_appointmentschedule WHERE APPOINTMENT_ID = " + appointment_ID + " ORDER BY DAY_ID ASC";
+                string sqlV = @"SELECT VERIFICATION_CODE FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
                 cn.Open();
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
                 cmdV = new MySql.Data.MySqlClient.MySqlCommand(sqlV, cn);
