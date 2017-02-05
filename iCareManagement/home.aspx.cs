@@ -305,7 +305,7 @@ namespace iCareManagement
                 int value = (Convert.ToInt32(dt.Rows[0][1].ToString()) - 1);
                 cmb_Type.ClearSelection();
                 cmb_Type.Items[value].Selected = true;
-                customer_Phone.Text = dt.Rows[0][1].ToString();
+                customer_Phone.Text = dt.Rows[0][2].ToString();
             }
             catch (Exception)
             {
