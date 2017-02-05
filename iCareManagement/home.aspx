@@ -263,6 +263,7 @@
                                             <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                             <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                             <asp:BoundField DataField="TYPE" HeaderText="Loại" />
+                                            <asp:BoundField DataField="MACHINE_NAME" HeaderText="Thiết bị" />
                                             <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
                                             <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
                                             <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm tt}" htmlencode="false"/>
@@ -436,6 +437,7 @@
                                         <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                         <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                         <asp:BoundField DataField="TYPE" HeaderText="Loại" />
+                                        <asp:BoundField DataField="MACHINE_NAME" HeaderText="Thiết bị" />
                                         <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
                                         <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
                                         <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm tt}" htmlencode="false"/>
