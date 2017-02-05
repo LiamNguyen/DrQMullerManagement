@@ -233,8 +233,8 @@ namespace iCareManagement
                 DataTable dtT = new DataTable();
 
                 string sql = @"SELECT DAY_ID, TIME_ID FROM tbl_appointmentschedule WHERE APPOINTMENT_ID = " + appointment_ID + " ORDER BY DAY_ID ASC";
-                string sqlV = @"SELECT VERIFICATION_CODE FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
-                string sqlT = @"SELECT TYPE_ID FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
+                string sqlV = @"SELECT VERIFICATION_CODE, TYPE_ID FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
+                //string sqlT = @"SELECT TYPE_ID FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
                 cn.Open();
 
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
@@ -242,15 +242,15 @@ namespace iCareManagement
 
                 ada.SelectCommand = cmd;
                 adaV.SelectCommand = cmdV;
-                adaT = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlT, cn);
+                //adaT = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlT, cn);
 
                 ada.Fill(ds);
                 adaV.Fill(dt);
-                adaT.Fill(dtT);
+                //adaT.Fill(dtT);
 
                 ada.Dispose();
                 adaV.Dispose();
-                adaT.Dispose();
+                //adaT.Dispose();
                 cmd.Dispose();
                 cmdV.Dispose();
                 cn.Close();
@@ -300,7 +300,7 @@ namespace iCareManagement
                     bindThirdCmb(ds);
                 }
                 verification_Code.Text = dt.Rows[0][0].ToString();
-                int value = (Convert.ToInt32(dtT.Rows[0][0].ToString()) - 1);
+                int value = (Convert.ToInt32(dt.Rows[0][1].ToString()) - 1);
                 cmb_Type.ClearSelection();
                 cmb_Type.Items[value].Selected = true;
             }
