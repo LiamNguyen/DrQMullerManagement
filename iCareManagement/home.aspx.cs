@@ -233,7 +233,9 @@ namespace iCareManagement
                 DataTable dtT = new DataTable();
 
                 string sql = @"SELECT DAY_ID, TIME_ID FROM tbl_appointmentschedule WHERE APPOINTMENT_ID = " + appointment_ID + " ORDER BY DAY_ID ASC";
-                string sqlV = @"SELECT VERIFICATION_CODE, TYPE_ID FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
+                string sqlV = @"SELECT a.VERIFICATION_CODE, a.TYPE_ID, c.PHONE FROM tbl_appointments A
+                                INNER JOIN tbl_customers C ON a.CUSTOMER_ID = c.CUSTOMER_ID
+                                WHERE APPOINTMENT_ID = " + appointment_ID;
                 //string sqlT = @"SELECT TYPE_ID FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
                 cn.Open();
 
@@ -303,6 +305,7 @@ namespace iCareManagement
                 int value = (Convert.ToInt32(dt.Rows[0][1].ToString()) - 1);
                 cmb_Type.ClearSelection();
                 cmb_Type.Items[value].Selected = true;
+                customer_Phone.Text = dt.Rows[0][1].ToString();
             }
             catch (Exception)
             {
@@ -786,7 +789,9 @@ namespace iCareManagement
                 DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
                 string sql = @"SELECT DAY_ID, TIME_ID FROM tbl_appointmentschedule WHERE APPOINTMENT_ID = " + appointment_ID + " ORDER BY DAY_ID ASC";
-                string sqlV = @"SELECT VERIFICATION_CODE FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
+                string sqlV = @"SELECT a.VERIFICATION_CODE, c.PHONE FROM tbl_appointments a
+                                INNER JOIN tbl_customers c ON a.CUSTOMER_ID = c.CUSTOMER_ID
+                                WHERE APPOINTMENT_ID = " + appointment_ID;
                 cn.Open();
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
                 cmdV = new MySql.Data.MySqlClient.MySqlCommand(sqlV, cn);
@@ -817,6 +822,7 @@ namespace iCareManagement
                     bindThirdCmbManagement(ds);
                 }
                 verification_CodeManagement.Text = dt.Rows[0][0].ToString();
+                custome_PhoneManagement.Text = dt.Rows[0][1].ToString();
             }
             catch (Exception)
             {
