@@ -209,11 +209,11 @@ namespace iCareManagement
                   Detail Panel
                   ==================
                  */
-                txt_Customer.Text = row.Cells[6].Text;
+                txt_Customer.Text = row.Cells[7].Text;
                 cmb_Vouchers.ClearSelection();
                 cmb_Vouchers.Items.FindByText(row.Cells[1].Text).Selected = true;
                 cmb_Locations.ClearSelection();
-                cmb_Locations.Items.FindByText(row.Cells[5].Text).Selected = true;
+                cmb_Locations.Items.FindByText(row.Cells[6].Text).Selected = true;
                 from.Text = row.Cells[2].Text;
                 to.Text = row.Cells[3].Text;
                 /*==================
@@ -769,11 +769,11 @@ namespace iCareManagement
                   Detail Panel
                   ==================
                  */
-                txt_CustomerManagement.Text = row.Cells[6].Text;
+                txt_CustomerManagement.Text = row.Cells[7].Text;
                 cmb_VouchersManagement.ClearSelection();
                 cmb_VouchersManagement.Items.FindByText(row.Cells[1].Text).Selected = true;
                 cmb_LocationsManagement.ClearSelection();
-                cmb_LocationsManagement.Items.FindByText(row.Cells[5].Text).Selected = true;
+                cmb_LocationsManagement.Items.FindByText(row.Cells[6].Text).Selected = true;
                 fromManagement.Text = row.Cells[2].Text;
                 toManagement.Text = row.Cells[3].Text;
                 cmb_TypeManagement.ClearSelection();
