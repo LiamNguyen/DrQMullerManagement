@@ -53,12 +53,14 @@ namespace iCareManagement
                 MySql.Data.MySqlClient.MySqlDataAdapter ada;
                 ada = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 DataTable dt = new DataTable();
-                string sql = @"SELECT tbl_appointments.APPOINTMENT_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_types.TYPE, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
+                string sql = @"SELECT tbl_appointments.APPOINTMENT_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_types.TYPE, tbl_machines.MACHINE_NAME, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
                             FROM tbl_appointments INNER JOIN tbl_vouchers 
                             ON tbl_appointments.VOUCHER_ID = tbl_vouchers.VOUCHER_ID INNER JOIN tbl_locations
                             ON tbl_appointments.LOCATION_ID = tbl_locations.LOCATION_ID INNER JOIN tbl_customers
                             ON tbl_appointments.CUSTOMER_ID = tbl_customers.CUSTOMER_ID INNER JOIN tbl_types
-                            ON tbl_appointments.TYPE_ID = tbl_types.TYPE_ID
+                            ON tbl_appointments.TYPE_ID = tbl_types.TYPE_ID INNER JOIN tbl_appointmentschedule
+                            ON tbl_appointments.APPOINTMENT_ID = tbl_appointmentschedule.APPOINTMENT_ID INNER JOIN tbl_machines
+                            ON tbl_appointmentschedule.MACHINE_ID = tbl_machines.MACHINE_ID
                             WHERE tbl_appointments.ISCONFIRMED = '0' AND tbl_appointments.ACTIVE = '1'
                             ORDER BY tbl_appointments.CREATEDAT DESC";
                 cn.Open();
@@ -579,12 +581,14 @@ namespace iCareManagement
                 MySql.Data.MySqlClient.MySqlDataAdapter ada;
                 ada = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 DataSet ds = new DataSet();
-                string sql = @"SELECT tbl_appointments.APPOINTMENT_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_types.TYPE, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
+                string sql = @"SELECT tbl_appointments.APPOINTMENT_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_types.TYPE, tbl_machines.MACHINE_NAME, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
                             FROM tbl_appointments INNER JOIN tbl_vouchers 
                             ON tbl_appointments.VOUCHER_ID = tbl_vouchers.VOUCHER_ID INNER JOIN tbl_locations
                             ON tbl_appointments.LOCATION_ID = tbl_locations.LOCATION_ID INNER JOIN tbl_customers
                             ON tbl_appointments.CUSTOMER_ID = tbl_customers.CUSTOMER_ID INNER JOIN tbl_types
-                            ON tbl_appointments.TYPE_ID = tbl_types.TYPE_ID
+                            ON tbl_appointments.TYPE_ID = tbl_types.TYPE_ID INNER JOIN tbl_appointmentschedule
+                            ON tbl_appointments.APPOINTMENT_ID = tbl_appointmentschedule.APPOINTMENT_ID INNER JOIN tbl_machines
+                            ON tbl_appointmentschedule.MACHINE_ID = tbl_machines.MACHINE_ID
                             WHERE tbl_appointments.ISCONFIRMED = '1' AND tbl_appointments.ACTIVE = '1'
                             ORDER BY tbl_appointments.CREATEDAT DESC";
                 cn.Open();
