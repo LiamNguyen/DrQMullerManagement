@@ -225,6 +225,14 @@
                                                         <asp:TextBox ID="verification_Code" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
                                                     </div>
                                                 </div>
+                                               <div class="form-group">
+                                                   <div class="input-group">
+                                                       <span class="input-group-addon input-group-addon-custom input-group-addon-content">
+                                                            <label class="control-label">Số điện thoại</label>
+                                                        </span>
+                                                        <asp:TextBox ID="customer_Phone" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
+                                                   </div>
+                                               </div>
                                                 <div class="form-group" style="text-align: left;">
                                                     <span style="color: grey;font-size: 14px;margin-left: 0px">*Chưa có chức năng chỉnh sửa</span>
                                                 </div>
@@ -393,6 +401,14 @@
                                                         <asp:TextBox ID="verification_CodeManagement" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
                                                     </div>
                                                 </div>
+                                                <div class="form-group">
+                                                   <div class="input-group">
+                                                       <span class="input-group-addon input-group-addon-custom input-group-addon-content">
+                                                            <label class="control-label">Số điện thoại</label>
+                                                        </span>
+                                                        <asp:TextBox ID="custome_PhoneManagement" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
+                                                   </div>
+                                               </div>
                                             </div>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>

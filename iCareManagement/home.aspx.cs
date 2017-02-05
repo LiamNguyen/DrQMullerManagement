@@ -106,6 +106,7 @@ namespace iCareManagement
             cmb_TimeTwo.Enabled = false;
             cmb_TimeThree.Enabled = false;
             verification_Code.Enabled = false;
+            customer_Phone.Enabled = false;
 
             txt_CustomerManagement.Enabled = false;
             cmb_LocationsManagement.Enabled = false;
@@ -120,6 +121,7 @@ namespace iCareManagement
             cmb_DayThreeManagement.Enabled = false;
             cmb_TimeThreeManagement.Enabled = false;
             verification_CodeManagement.Enabled = false;
+            custome_PhoneManagement.Enabled = false;
         }
 
         private void unlockGeneralApp()
