@@ -82,6 +82,7 @@
     <Content Include="assets\scripts\validateLogin.js" />
     <Content Include="assets\scripts\validateRegister.js" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\PRDiCareManagement.pubxml" />
     <None Include="Properties\PublishProfiles\UATiCareManagement.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

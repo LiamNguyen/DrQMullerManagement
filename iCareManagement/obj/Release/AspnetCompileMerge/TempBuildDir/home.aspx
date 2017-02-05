@@ -15,18 +15,14 @@
     <script src="assets/scripts/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <style>
-        .input-group-addon-content {
-            text-align: left !important;
-	        min-width: 100px;
-	        padding-top: 10px !important;
-        }
-    </style>
 </head>
 <body>
     <form runat="server">
     <asp:HiddenField ID="isFirstLoad" runat="server" Value="true" Visible="false" />
     <asp:ScriptManager ID="ScriptManager1" EnablePageMethods="true" EnablePartialRendering="true" runat="server" ></asp:ScriptManager>
+
+<!--Nav Bar Top-->
+
     <div class="navbar navbar-fixed-top">
         <div class="navbar-header">
             <b>Dr.Q-Muller's Beauty Therapist Centre</b>
@@ -88,14 +84,11 @@
                         <span>Hướng Dẫn</span>
                     </a>
                 </li>
-                <li>
+                <li style="margin-bottom: 70px">
                     <a href="#signout" class="btn_Logout">
                         <i class="glyphicon-custom glyphicon glyphicon-log-out"></i>
                         <span>Đăng Thoát</span>
                     </a>
-                </li>
-                <li>
-                    
                 </li>
             </ul>
         </div>
@@ -133,7 +126,6 @@
                                                     </span>
                                                     <div class="selectContainer">
                                                         <asp:DropDownList ID="cmb_Vouchers" CssClass="form-control form-control-custom" runat="server">
-                                                            <asp:ListItem Text="Chọn" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -143,7 +135,6 @@
                                                     </span>
                                                     <div class="selectContainer">
                                                         <asp:DropDownList ID="cmb_Locations" CssClass="form-control form-control-custom" runat="server">
-                                                            <asp:ListItem Text="Chọn" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -158,6 +149,15 @@
                                                         <label class="control-label">Ngày kết thúc</label>
                                                     </span>
                                                     <asp:TextBox ID="to" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon input-group-addon-custom input-group-addon-content">
+                                                        <label class="control-label">Loại</label>
+                                                    </span>
+                                                    <div class="selectContainer">
+                                                        <asp:DropDownList ID="cmb_Type" CssClass="form-control form-control-custom" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
                                                 </div>
                                                 <div class="input-group">
                                                     <asp:Button ID="btn_EditGeneralAppInfo" CssClass="btn btn-primary" OnClick="btn_EditGeneralAppInfo_Click" runat="server" Text="Chỉnh sửa" />
@@ -235,41 +235,41 @@
                             </div>
                         </div>
                     </div>
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-                        <ContentTemplate>
-                            <asp:Button ID="refresh" CssClass="btn btn-primary" runat="server" Text="Cập nhật" />
                     <div class="row">
-                        <div class="col-md-offset-6" style="margin-bottom: 20px">
-                            <div class="input-group" style="width: 100%;position: relative;">
-                                <input type="text" class="form-control form-control-custom" placeholder="Tìm theo ngày hoặc tên khách hàng" style="width: 70% !important" name="txt_SearchApp" id="txt_SearchApp">
-                                <span class="glyphicon glyphicon-search" style="position: absolute;font-size: 1.5em; padding-left: 5px; padding-top: 5px"></span>
-                            </div>
-                        </div>
-                        <div class="panel panel-default col-md-11" style="box-shadow: rgba(0, 0, 0, 0.14902) 3px 3px 10px 2px;">
-
-                            <asp:GridView ID="grid_Appointment" CssClass="table" runat="server" AutoGenerateColumns="false" UseAccessibleHeader="true" 
-                                border="0" BorderStyle="None" AllowSorting="true" AllowPaging="true" PageSize="5" OnPageIndexChanging="OnPaging"
-                                OnRowDataBound="grid_Appointment_RowDataBound" OnRowCommand="grid_Appointment_RowCommand">
-                                <Columns>
-                                    <asp:BoundField DataField="APPOINTMENT_ID" HeaderText="Mã lịch hẹn" />
-                                    <asp:BoundField DataField="VOUCHER" HeaderText="Liệu trình" />
-                                    <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
-                                    <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
-                                    <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
-                                    <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
-                                    <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm:ss}" htmlencode="false"/>
-                                </Columns>
-                            <selectedrowstyle backcolor="Purple"
-                            forecolor="White"
-                            font-bold="true"/>
-                            </asp:GridView>
-                        </ContentTemplate>
-                        <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="refresh" />
-                            <asp:AsyncPostBackTrigger ControlID="btn_SaveGeneralAppInfo" />
-                        </Triggers>
-                    </asp:UpdatePanel>
-                        </div>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <asp:Button ID="refresh" CssClass="btn btn-primary" runat="server" Text="Cập nhật" />
+                                <div class="col-md-offset-6" style="margin-bottom: 20px">
+                                    <div class="input-group" style="width: 100%;position: relative;">
+                                        <input type="text" class="form-control form-control-custom" placeholder="Tìm theo ngày hoặc tên khách hàng" style="width: 70% !important" name="txt_SearchApp" id="txt_SearchApp">
+                                        <span class="glyphicon glyphicon-search" style="position: absolute;font-size: 1.5em; padding-left: 5px; padding-top: 5px"></span>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default col-md-11" style="box-shadow: rgba(0, 0, 0, 0.14902) 3px 3px 10px 2px;">
+                                    <asp:GridView ID="grid_Appointment" CssClass="table" runat="server" AutoGenerateColumns="false" UseAccessibleHeader="true" 
+                                        border="0" BorderStyle="None" AllowSorting="true" AllowPaging="true" PageSize="5" OnPageIndexChanging="OnPaging"
+                                        OnRowDataBound="grid_Appointment_RowDataBound" OnRowCommand="grid_Appointment_RowCommand">
+                                        <Columns>
+                                            <asp:BoundField DataField="APPOINTMENT_ID" HeaderText="Mã lịch hẹn" />
+                                            <asp:BoundField DataField="VOUCHER" HeaderText="Liệu trình" />
+                                            <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
+                                            <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
+                                            <asp:BoundField DataField="TYPE" HeaderText="Loại" />
+                                            <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
+                                            <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
+                                            <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm tt}" htmlencode="false"/>
+                                        </Columns>
+                                        <selectedrowstyle backcolor="Purple"
+                                        forecolor="White"
+                                        font-bold="true"/>
+                                    </asp:GridView>
+                                </div>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="refresh" />
+                                <asp:AsyncPostBackTrigger ControlID="btn_SaveGeneralAppInfo" />
+                            </Triggers>
+                        </asp:UpdatePanel>
                     </div>
                     <!--<div class="row">
                         <asp:Button ID="btn_AppDetail" CssClass="btn-primary btn" runat="server" Text="PDF" />
@@ -296,20 +296,17 @@
                                                     <span class="input-group-addon input-group-addon-custom input-group-addon-content">
                                                         <label class="control-label">Liệu trình</label>
                                                     </span>
-                                                        <div class="selectContainer">
-                                                            <asp:DropDownList ID="cmb_VouchersManagement" CssClass="form-control form-control-custom" runat="server">
-                                                                <asp:ListItem Text="VIP Booking" Value="vip"></asp:ListItem>
-                                                                <asp:ListItem Text="ECO Booking" Value="eco"></asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </div>
+                                                    <div class="selectContainer">
+                                                        <asp:DropDownList ID="cmb_VouchersManagement" CssClass="form-control form-control-custom" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
                                                 </div>
                                                 <div class="input-group">
                                                     <span class="input-group-addon input-group-addon-custom input-group-addon-content">
                                                         <label class="control-label">Trung tâm</label>
                                                     </span>
                                                     <div class="selectContainer">
-                                                     <asp:DropDownList ID="cmb_LocationsManagement" CssClass="form-control form-control-custom" runat="server">
-                                                        <asp:ListItem Value="1" Text="Trần Quang Diệu"></asp:ListItem>
+                                                        <asp:DropDownList ID="cmb_LocationsManagement" CssClass="form-control form-control-custom" runat="server">
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -324,6 +321,15 @@
                                                         <label class="control-label">Ngày kết thúc</label>
                                                     </span>
                                                     <asp:TextBox ID="toManagement" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon input-group-addon-custom input-group-addon-content">
+                                                        <label class="control-label">Loại</label>
+                                                    </span>
+                                                    <div class="selectContainer">
+                                                        <asp:DropDownList ID="cmb_TypeManagement" CssClass="form-control form-control-custom" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </ContentTemplate>
@@ -394,40 +400,40 @@
                             </div>
                         </div>
                     </div>
-                    <asp:UpdatePanel ID="UpdatePanel6" runat="server" UpdateMode="Conditional">
-                        <ContentTemplate>
-                            <asp:Button ID="refreshManagement" CssClass="btn btn-primary" runat="server" Text="Cập nhật" />
                     <div class="row">
-                        <div class="col-md-offset-6" style="margin-bottom: 20px">
-                            <div class="input-group" style="width: 100%;position: relative;">
-                                <input type="text" class="form-control form-control-custom" placeholder="Tìm theo ngày hoặc tên khách hàng" style="width: 70% !important" name="txt_SearchApp" id="txt_SearchAppManagement">
-                                <span class="glyphicon glyphicon-search" style="position: absolute;font-size: 1.5em; padding-left: 5px; padding-top: 5px"></span>
+                        <asp:UpdatePanel ID="UpdatePanel6" runat="server" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <asp:Button ID="refreshManagement" CssClass="btn btn-primary" runat="server" Text="Cập nhật" />
+                            <div class="col-md-offset-6" style="margin-bottom: 20px">
+                                <div class="input-group" style="width: 100%;position: relative;">
+                                    <input type="text" class="form-control form-control-custom" placeholder="Tìm theo ngày hoặc tên khách hàng" style="width: 70% !important" name="txt_SearchApp" id="txt_SearchAppManagement">
+                                    <span class="glyphicon glyphicon-search" style="position: absolute;font-size: 1.5em; padding-left: 5px; padding-top: 5px"></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="panel panel-default col-md-11" style="box-shadow: rgba(0, 0, 0, 0.14902) 3px 3px 10px 2px;">
-
-                                        <asp:GridView ID="grid_AppointmentManagement" CssClass="table" runat="server" AutoGenerateColumns="false" UseAccessibleHeader="true" 
-                                            border="0" BorderStyle="None" AllowSorting="true" AllowPaging="true" PageSize="5" OnPageIndexChanging="grid_AppointmentManagement_PageIndexChanging"
-                                             OnRowDataBound="grid_AppointmentManagement_RowDataBound" OnRowCommand="grid_AppointmentManagement_RowCommand">
-                                            <Columns>
-                                                <asp:BoundField DataField="APPOINTMENT_ID" HeaderText="Mã lịch hẹn" />
-                                                <asp:BoundField DataField="VOUCHER" HeaderText="Liệu trình" />
-                                                <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
-                                                <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
-                                                <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
-                                                <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
-                                                <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm:ss}" htmlencode="false"/>
-                                            </Columns>
-                                            <selectedrowstyle backcolor="Purple"
-                                             forecolor="White"
-                                             font-bold="true"/>
-                                        </asp:GridView>
-                                    </ContentTemplate>
-                                    <Triggers>
-                                        <asp:AsyncPostBackTrigger ControlID="refreshManagement" />
-                                    </Triggers>
-                                </asp:UpdatePanel>
-                        </div>
+                            <div class="panel panel-default col-md-11" style="box-shadow: rgba(0, 0, 0, 0.14902) 3px 3px 10px 2px;">
+                                <asp:GridView ID="grid_AppointmentManagement" CssClass="table" runat="server" AutoGenerateColumns="false" UseAccessibleHeader="true" 
+                                    border="0" BorderStyle="None" AllowSorting="true" AllowPaging="true" PageSize="5" OnPageIndexChanging="grid_AppointmentManagement_PageIndexChanging"
+                                        OnRowDataBound="grid_AppointmentManagement_RowDataBound" OnRowCommand="grid_AppointmentManagement_RowCommand">
+                                    <Columns>
+                                        <asp:BoundField DataField="APPOINTMENT_ID" HeaderText="Mã lịch hẹn" />
+                                        <asp:BoundField DataField="VOUCHER" HeaderText="Liệu trình" />
+                                        <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
+                                        <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
+                                        <asp:BoundField DataField="TYPE" HeaderText="Loại" />
+                                        <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
+                                        <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
+                                        <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm tt}" htmlencode="false"/>
+                                    </Columns>
+                                    <selectedrowstyle backcolor="Purple"
+                                        forecolor="White"
+                                        font-bold="true"/>
+                                </asp:GridView>
+                            </div>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="refreshManagement" />
+                            </Triggers>
+                        </asp:UpdatePanel>
                     </div>
                     <!--<div class="row">
                         <asp:Button ID="Button4" CssClass="btn-primary btn" runat="server" Text="PDF" />
@@ -786,43 +792,7 @@
         </div>
     </div>
     <script type="text/javascript" src="assets/scripts/app.js"></script>
-    <script>
-        $(document).ready(function () {
-            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
-            function EndRequestHandler(sender, args) {
-                var dateFormat = "mm.dd.yy",
-                  from = $("#from")
-                    .datepicker({
-                        defaultDate: "+1w",
-                        changeMonth: true,
-                        numberOfMonths: 2,
-                        dateFormat: 'dd.mm.yy'
-                    })
-                    .on("change", function () {
-                        to.datepicker("option", "minDate", getDate(this));
-                    }),
-                  to = $("#to").datepicker({
-                      defaultDate: "+1w",
-                      changeMonth: true,
-                      numberOfMonths: 2,
-                      dateFormat: 'dd.mm.yy',
-                  })
-                  .on("change", function () {
-                      from.datepicker("option", "maxDate", getDate(this));
-                  });
-
-                function getDate(element) {
-                    var date;
-                    try {
-                        date = $.datepicker.parseDate(dateFormat, element.value);
-                    } catch (error) {
-                        date = null;
-                    }
-                    return date;
-                }
-            }
-        });
-    </script>
+    <script src="assets/scripts/datePicker.js"></script>
     </form>
 </body>
 </html>

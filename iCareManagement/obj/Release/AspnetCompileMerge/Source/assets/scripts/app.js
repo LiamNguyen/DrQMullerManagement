@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    
     $('.cabinet-sidebar .cabinet-menu li a').on('click', function (e) {
         var clickedAttrLink = $(this).attr('href');
         $('.cabinet-sidebar-content .cabinet-container ' + clickedAttrLink).show().siblings().hide();
@@ -29,12 +28,5 @@ $(document).ready(function () {
         $('.cabinet-sidebar .cabinet-menu li a').children('span').addClass('page-active').parent('a').parent('li').siblings().children('a').children('span').removeClass('page-active');
         $('.cabinet-sidebar .cabinet-menu li a').children('i').addClass('page-active').parent('a').parent('li').siblings().children('a').children('i').removeClass('page-active');
         e.preventDefault();
-    });
-
-    $('#from').datepicker({
-        onSelect: function () {
-            var dateObject = $(this).datepicker('getDate');
-            console.log(dateObject);
-        }
     });
 });

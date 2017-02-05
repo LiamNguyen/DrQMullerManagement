@@ -6,221 +6,230 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\UATDrQMullerManagement</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\DrQMullerManagement</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="assets/bootstrap/bootstrap.css">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/bootstrap/bootstrap.min.css">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/bootstrap/Site.css">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/css/jquery-ui.css">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/fonts/Pacifico.ttf">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/fonts/Villa.ttf">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/images/account.png">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/images/bg.jpg">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/images/bg_ChristmasTheme.jpg">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/images/favicon.ico">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/images/notification.png">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/app.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:35</publishTime>
     </File>
     <File Include="assets/scripts/base.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/bootstrap.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/bootstrap.min.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
+    </File>
+    <File Include="assets/scripts/datePicker.js">
+      <publishTime>12/07/2016 18:31:35</publishTime>
     </File>
     <File Include="assets/scripts/jquery-1.10.2.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/jquery-1.10.2.min.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/jquery-1.10.2.min.map">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/jquery-ui.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/jquery.validate.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/jquery.validate.min.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/jquery.validate.unobtrusive.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqx.base.css">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqx.web.css">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxangular.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxbuttongroup.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxbuttons.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxcalendar.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxcheckbox.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxcolorpicker.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxcombobox.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxcore.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxdata.export.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxdata.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxdatatable.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxdate.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxdatetimeinput.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxdropdownlist.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxgrid.columnsreorder.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxgrid.columnsresize.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxgrid.edit.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxgrid.export.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxgrid.filter.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxgrid.grouping.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxgrid.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxgrid.selection.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxgrid.sort.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/JQWidgets/jqxnotification.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/modernizr-2.6.2.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/prettify-1.0.min.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/respond.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="assets/scripts/respond.min.js">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
+    </File>
+    <File Include="assets/scripts/validateLogin.js">
+      <publishTime>12/07/2016 18:31:35</publishTime>
+    </File>
+    <File Include="assets/scripts/validateRegister.js">
+      <publishTime>12/07/2016 18:31:35</publishTime>
     </File>
     <File Include="bin/iCareManagement.dll">
-      <publishTime>12/05/2016 19:01:08</publishTime>
+      <publishTime>02/05/2017 17:57:32</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
-      <publishTime>06/17/2016 18:28:04</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="bin/MySql.Web.dll">
-      <publishTime>06/17/2016 18:28:04</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>12/05/2016 15:59:08</publishTime>
+      <publishTime>12/07/2016 18:31:38</publishTime>
     </File>
     <File Include="home.aspx">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/20/2016 08:51:33</publishTime>
     </File>
     <File Include="login.aspx">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:36</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:38</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>12/05/2016 19:01:10</publishTime>
+      <publishTime>02/05/2017 17:57:34</publishTime>
     </File>
     <File Include="profile.aspx">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:38</publishTime>
     </File>
     <File Include="register.aspx">
-      <publishTime>12/05/2016 19:00:34</publishTime>
+      <publishTime>12/07/2016 18:31:38</publishTime>
     </File>
     <File Include="reset.aspx">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:38</publishTime>
     </File>
     <File Include="style.css">
-      <publishTime>12/05/2016 15:59:07</publishTime>
+      <publishTime>12/07/2016 18:31:38</publishTime>
     </File>
     <File Include="TestDB.aspx">
-      <publishTime>12/05/2016 15:59:06</publishTime>
+      <publishTime>12/07/2016 18:31:37</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/05/2016 18:21:10</publishTime>
+      <publishTime>02/05/2017 17:57:33</publishTime>
     </File>
   </ItemGroup>
 </Project>
