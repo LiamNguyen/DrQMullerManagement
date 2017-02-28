@@ -61,7 +61,7 @@ namespace iCareManagement
                             ON tbl_appointments.TYPE_ID = tbl_types.TYPE_ID INNER JOIN tbl_appointmentschedule
                             ON tbl_appointments.APPOINTMENT_ID = tbl_appointmentschedule.APPOINTMENT_ID INNER JOIN tbl_machines
                             ON tbl_appointmentschedule.MACHINE_ID = tbl_machines.MACHINE_ID
-                            WHERE tbl_appointments.ISCONFIRMED = '0' AND tbl_appointments.ACTIVE = '1'
+                            WHERE tbl_appointments.ISCONFIRMED = '0' AND tbl_appointments.ACTIVE = '1' AND TEST = 0
                             ORDER BY tbl_appointments.CREATEDAT DESC";
                 cn.Open();
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
@@ -86,6 +86,9 @@ namespace iCareManagement
                     grid_Appointment.HeaderRow.TableSection = TableRowSection.TableHeader;
                     grid_Appointment.GridLines = GridLines.None;
                 }
+
+                verification_Code.Text = "";
+                customer_Phone.Text = "";
             }
             catch
             {
@@ -589,7 +592,7 @@ namespace iCareManagement
                             ON tbl_appointments.TYPE_ID = tbl_types.TYPE_ID INNER JOIN tbl_appointmentschedule
                             ON tbl_appointments.APPOINTMENT_ID = tbl_appointmentschedule.APPOINTMENT_ID INNER JOIN tbl_machines
                             ON tbl_appointmentschedule.MACHINE_ID = tbl_machines.MACHINE_ID
-                            WHERE tbl_appointments.ISCONFIRMED = '1' AND tbl_appointments.ACTIVE = '1'
+                            WHERE tbl_appointments.ISCONFIRMED = '1' AND TEST = 0 and tbl_appointments.ISCANCEL = 0 
                             ORDER BY tbl_appointments.CREATEDAT DESC";
                 cn.Open();
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
@@ -613,6 +616,9 @@ namespace iCareManagement
                     grid_AppointmentManagement.HeaderRow.TableSection = TableRowSection.TableHeader;
                     grid_AppointmentManagement.GridLines = GridLines.None;
                 }
+
+                verification_CodeManagement.Text = "";
+                custome_PhoneManagement.Text = "";
             }
             catch
             {

@@ -225,6 +225,14 @@
                                                         <asp:TextBox ID="verification_Code" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
                                                     </div>
                                                 </div>
+                                               <div class="form-group">
+                                                   <div class="input-group">
+                                                       <span class="input-group-addon input-group-addon-custom input-group-addon-content">
+                                                            <label class="control-label">Số điện thoại</label>
+                                                        </span>
+                                                        <asp:TextBox ID="customer_Phone" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
+                                                   </div>
+                                               </div>
                                                 <div class="form-group" style="text-align: left;">
                                                     <span style="color: grey;font-size: 14px;margin-left: 0px">*Chưa có chức năng chỉnh sửa</span>
                                                 </div>
@@ -255,6 +263,7 @@
                                             <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                             <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                             <asp:BoundField DataField="TYPE" HeaderText="Loại" />
+                                            <asp:BoundField DataField="MACHINE_NAME" HeaderText="Thiết bị" />
                                             <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
                                             <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
                                             <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm tt}" htmlencode="false"/>
@@ -393,6 +402,14 @@
                                                         <asp:TextBox ID="verification_CodeManagement" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
                                                     </div>
                                                 </div>
+                                                <div class="form-group">
+                                                   <div class="input-group">
+                                                       <span class="input-group-addon input-group-addon-custom input-group-addon-content">
+                                                            <label class="control-label">Số điện thoại</label>
+                                                        </span>
+                                                        <asp:TextBox ID="custome_PhoneManagement" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
+                                                   </div>
+                                               </div>
                                             </div>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
@@ -420,6 +437,7 @@
                                         <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                         <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                         <asp:BoundField DataField="TYPE" HeaderText="Loại" />
+                                        <asp:BoundField DataField="MACHINE_NAME" HeaderText="Thiết bị" />
                                         <asp:BoundField DataField="LOCATION_NAME" HeaderText="Trung tâm" />
                                         <asp:BoundField DataField="CUSTOMER_NAME" HeaderText="Khách hàng" />
                                         <asp:BoundField DataField="CREATEDAT" HeaderText="Ngày khởi tạo" dataformatstring="{0:dd.MM.yyyy hh:mm tt}" htmlencode="false"/>
