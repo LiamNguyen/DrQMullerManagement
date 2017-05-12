@@ -13,7 +13,7 @@
     <script src="https://cloud.github.com/downloads/kopipejst/jqSnow/jquery.snow.js"></script>
     <script src="https://cloud.github.com/downloads/kopipejst/jqSnow/jquery.snow.min.1.0.js"></script>
 </head>
-<body onload="focusToTxtBox()" style="background-image: url(assets/images/bg_ChristmasTheme.jpg);">
+<body onload="focusToTxtBox()" style="background-image: url(assets/images/bg.jpg);">
     <div class="navbar">
         <div class="navbar-header">
             <b>Dr.Q-Muller's Beauty Therapist Centre</b>
@@ -86,10 +86,5 @@
         }
     </script>
     <script src="assets/scripts/validateRegister.js"></script>
-    <script>
-        $(document).ready( function(){
-            $.fn.snow({ minSize: 10, maxSize: 50, newOn: 100});
-        });
-    </script>
 </body>
 </html>

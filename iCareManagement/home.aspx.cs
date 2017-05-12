@@ -6,7 +6,7 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-
+using System.Text;
 
 namespace iCareManagement
 {
@@ -53,7 +53,7 @@ namespace iCareManagement
                 MySql.Data.MySqlClient.MySqlDataAdapter ada;
                 ada = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 DataTable dt = new DataTable();
-                string sql = @"SELECT tbl_appointments.APPOINTMENT_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_types.TYPE, tbl_machines.MACHINE_NAME, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
+                string sql = @"SELECT tbl_appointments.DISPLAY_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_types.TYPE, tbl_machines.MACHINE_NAME, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
                             FROM tbl_appointments INNER JOIN tbl_vouchers 
                             ON tbl_appointments.VOUCHER_ID = tbl_vouchers.VOUCHER_ID INNER JOIN tbl_locations
                             ON tbl_appointments.LOCATION_ID = tbl_locations.LOCATION_ID INNER JOIN tbl_customers
@@ -61,7 +61,7 @@ namespace iCareManagement
                             ON tbl_appointments.TYPE_ID = tbl_types.TYPE_ID INNER JOIN tbl_appointmentschedule
                             ON tbl_appointments.APPOINTMENT_ID = tbl_appointmentschedule.APPOINTMENT_ID INNER JOIN tbl_machines
                             ON tbl_appointmentschedule.MACHINE_ID = tbl_machines.MACHINE_ID
-                            WHERE tbl_appointments.ISCONFIRMED = '0' AND tbl_appointments.ACTIVE = '1' AND TEST = 0
+                            WHERE tbl_appointments.ISCONFIRMED = '0' AND tbl_appointments.ACTIVE = '1' AND ISTEST = 0
                             ORDER BY tbl_appointments.CREATEDAT DESC";
                 cn.Open();
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
@@ -126,7 +126,7 @@ namespace iCareManagement
             cmb_DayThreeManagement.Enabled = false;
             cmb_TimeThreeManagement.Enabled = false;
             verification_CodeManagement.Enabled = false;
-            custome_PhoneManagement.Enabled = false;
+            customer_PhoneManagement.Enabled = false;
         }
 
         private void unlockGeneralApp()
@@ -205,7 +205,7 @@ namespace iCareManagement
 
         private void fillPanel(GridViewRow row)
         {
-            int appointment_ID = Convert.ToInt32(row.Cells[0].Text);
+            int display_ID = Convert.ToInt32(row.Cells[0].Text);
             try
             {
                 /*==================
@@ -237,10 +237,14 @@ namespace iCareManagement
                 DataTable dt = new DataTable();
                 DataTable dtT = new DataTable();
 
-                string sql = @"SELECT DAY_ID, TIME_ID FROM tbl_appointmentschedule WHERE APPOINTMENT_ID = " + appointment_ID + " ORDER BY DAY_ID ASC";
-                string sqlV = @"SELECT a.VERIFICATION_CODE, a.TYPE_ID, c.PHONE FROM tbl_appointments A
+                string sql = @"SELECT DAY_ID, TIME_ID 
+                                FROM tbl_appointmentschedule aps
+                                INNER JOIN tbl_appointments a
+                                ON aps.Appointment_Id = a.Appointment_Id
+                                WHERE a.DISPLAY_ID = " + display_ID + " ORDER BY DAY_ID ASC";
+                string sqlV = @"SELECT a.VERIFICATION_CODE, a.TYPE_ID, c.PHONE FROM tbl_appointments a
                                 INNER JOIN tbl_customers C ON a.CUSTOMER_ID = c.CUSTOMER_ID
-                                WHERE APPOINTMENT_ID = " + appointment_ID;
+                                WHERE a.DISPLAY_ID = " + display_ID;
                 //string sqlT = @"SELECT TYPE_ID FROM tbl_appointments WHERE APPOINTMENT_ID = " + appointment_ID;
                 cn.Open();
 
@@ -584,7 +588,7 @@ namespace iCareManagement
                 MySql.Data.MySqlClient.MySqlDataAdapter ada;
                 ada = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 DataSet ds = new DataSet();
-                string sql = @"SELECT tbl_appointments.APPOINTMENT_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_types.TYPE, tbl_machines.MACHINE_NAME, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
+                string sql = @"SELECT tbl_appointments.DISPLAY_ID, tbl_vouchers.VOUCHER, tbl_appointments.START_DATE, tbl_appointments.EXPIRED_DATE, tbl_types.TYPE, tbl_machines.MACHINE_NAME, tbl_locations.LOCATION_NAME, tbl_customers.CUSTOMER_NAME, tbl_appointments.CREATEDAT
                             FROM tbl_appointments INNER JOIN tbl_vouchers 
                             ON tbl_appointments.VOUCHER_ID = tbl_vouchers.VOUCHER_ID INNER JOIN tbl_locations
                             ON tbl_appointments.LOCATION_ID = tbl_locations.LOCATION_ID INNER JOIN tbl_customers
@@ -592,7 +596,7 @@ namespace iCareManagement
                             ON tbl_appointments.TYPE_ID = tbl_types.TYPE_ID INNER JOIN tbl_appointmentschedule
                             ON tbl_appointments.APPOINTMENT_ID = tbl_appointmentschedule.APPOINTMENT_ID INNER JOIN tbl_machines
                             ON tbl_appointmentschedule.MACHINE_ID = tbl_machines.MACHINE_ID
-                            WHERE tbl_appointments.ISCONFIRMED = '1' AND TEST = 0 and tbl_appointments.ISCANCEL = 0 
+                            WHERE tbl_appointments.ISCONFIRMED = '1' AND ISTEST = 0 and tbl_appointments.ISCANCELLED = 0 
                             ORDER BY tbl_appointments.CREATEDAT DESC";
                 cn.Open();
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
@@ -618,7 +622,7 @@ namespace iCareManagement
                 }
 
                 verification_CodeManagement.Text = "";
-                custome_PhoneManagement.Text = "";
+                customer_PhoneManagement.Text = "";
             }
             catch
             {
@@ -768,13 +772,14 @@ namespace iCareManagement
 
         private void fillPanelManagement(GridViewRow row)
         {
-            int appointment_ID = Convert.ToInt32(row.Cells[0].Text);
+            int display_ID = Convert.ToInt32(row.Cells[0].Text);
             try
             {
                 /*==================
                   Detail Panel
                   ==================
                  */
+                 
                 txt_CustomerManagement.Text = row.Cells[7].Text;
                 cmb_VouchersManagement.ClearSelection();
                 cmb_VouchersManagement.Items.FindByText(row.Cells[1].Text).Selected = true;
@@ -798,10 +803,13 @@ namespace iCareManagement
                 adaV = new MySql.Data.MySqlClient.MySqlDataAdapter();
                 DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
-                string sql = @"SELECT DAY_ID, TIME_ID FROM tbl_appointmentschedule WHERE APPOINTMENT_ID = " + appointment_ID + " ORDER BY DAY_ID ASC";
-                string sqlV = @"SELECT a.VERIFICATION_CODE, c.PHONE FROM tbl_appointments a
-                                INNER JOIN tbl_customers c ON a.CUSTOMER_ID = c.CUSTOMER_ID
-                                WHERE APPOINTMENT_ID = " + appointment_ID;
+                string sql = @"SELECT DAY_ID, TIME_ID 
+                                FROM tbl_appointmentschedule aps
+                                INNER JOIN tbl_appointments a ON aps.APPOINTMENT_ID = a.APPOINTMENT_ID 
+                                WHERE a.DISPLAY_ID = " + display_ID + " ORDER BY DAY_ID ASC";
+                string sqlV = @"SELECT a.VERIFICATION_CODE, a.TYPE_ID, c.PHONE FROM tbl_appointments a
+                                INNER JOIN tbl_customers C ON a.CUSTOMER_ID = c.CUSTOMER_ID
+                                WHERE a.DISPLAY_ID = " + display_ID;
                 cn.Open();
                 cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, cn);
                 cmdV = new MySql.Data.MySqlClient.MySqlCommand(sqlV, cn);
@@ -832,7 +840,7 @@ namespace iCareManagement
                     bindThirdCmbManagement(ds);
                 }
                 verification_CodeManagement.Text = dt.Rows[0][0].ToString();
-                custome_PhoneManagement.Text = dt.Rows[0][1].ToString();
+                customer_PhoneManagement.Text = dt.Rows[0][2].ToString();
             }
             catch (Exception)
             {

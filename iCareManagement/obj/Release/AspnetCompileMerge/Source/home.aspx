@@ -258,7 +258,7 @@
                                         border="0" BorderStyle="None" AllowSorting="true" AllowPaging="true" PageSize="5" OnPageIndexChanging="OnPaging"
                                         OnRowDataBound="grid_Appointment_RowDataBound" OnRowCommand="grid_Appointment_RowCommand">
                                         <Columns>
-                                            <asp:BoundField DataField="APPOINTMENT_ID" HeaderText="Mã lịch hẹn" />
+                                            <asp:BoundField DataField="DISPLAY_ID" HeaderText="Mã lịch hẹn" />
                                             <asp:BoundField DataField="VOUCHER" HeaderText="Liệu trình" />
                                             <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                             <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
@@ -407,7 +407,7 @@
                                                        <span class="input-group-addon input-group-addon-custom input-group-addon-content">
                                                             <label class="control-label">Số điện thoại</label>
                                                         </span>
-                                                        <asp:TextBox ID="custome_PhoneManagement" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="customer_PhoneManagement" CssClass="form-control form-control-custom" runat="server"></asp:TextBox>
                                                    </div>
                                                </div>
                                             </div>
@@ -432,7 +432,7 @@
                                     border="0" BorderStyle="None" AllowSorting="true" AllowPaging="true" PageSize="5" OnPageIndexChanging="grid_AppointmentManagement_PageIndexChanging"
                                         OnRowDataBound="grid_AppointmentManagement_RowDataBound" OnRowCommand="grid_AppointmentManagement_RowCommand">
                                     <Columns>
-                                        <asp:BoundField DataField="APPOINTMENT_ID" HeaderText="Mã lịch hẹn" />
+                                        <asp:BoundField DataField="DISPLAY_ID" HeaderText="Mã lịch hẹn" />
                                         <asp:BoundField DataField="VOUCHER" HeaderText="Liệu trình" />
                                         <asp:BoundField DataField="START_DATE" HeaderText="Ngày bắt đầu" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>
                                         <asp:BoundField DataField="EXPIRED_DATE" HeaderText="Ngày kết thúc" dataformatstring="{0:dd.MM.yyyy}" htmlencode="false"/>

@@ -364,13 +364,13 @@ namespace iCareManagement {
         protected global::System.Web.UI.WebControls.TextBox verification_CodeManagement;
         
         /// <summary>
-        /// custome_PhoneManagement control.
+        /// customer_PhoneManagement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox custome_PhoneManagement;
+        protected global::System.Web.UI.WebControls.TextBox customer_PhoneManagement;
         
         /// <summary>
         /// UpdatePanel6 control.

@@ -60,7 +60,6 @@
         function focusToTxtBox() {
             document.getElementById("txt_Password").focus();
         }
-
     </script>
 </body>
 </html>
