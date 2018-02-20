@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,6 +71,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppointmentsManagementPage.aspx" />
+    <Content Include="AppointmentsPage.aspx" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
@@ -81,7 +84,10 @@
     <Content Include="assets\scripts\datePicker.js" />
     <Content Include="assets\scripts\validateLogin.js" />
     <Content Include="assets\scripts\validateRegister.js" />
+    <Content Include="CustomerPage.aspx" />
+    <Content Include="HomePage.aspx" />
     <Content Include="packages.config" />
+    <Content Include="MasterPage.Master" />
     <None Include="Properties\PublishProfiles\UATiCareManagement.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -142,11 +148,11 @@
     <Content Include="assets\scripts\prettify-1.0.min.js" />
     <Content Include="assets\scripts\respond.js" />
     <Content Include="assets\scripts\respond.min.js" />
-    <Content Include="home.aspx" />
     <Content Include="login.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
     <Content Include="reset.aspx" />
+    <Content Include="SchedulePage.aspx" />
     <Content Include="style.css" />
     <Content Include="TestDB.aspx" />
     <Content Include="Web.config">
@@ -154,12 +160,33 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="home.aspx.cs">
-      <DependentUpon>home.aspx</DependentUpon>
+    <Compile Include="AppointmentsManagementPage.aspx.cs">
+      <DependentUpon>AppointmentsManagementPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="home.aspx.designer.cs">
-      <DependentUpon>home.aspx</DependentUpon>
+    <Compile Include="AppointmentsManagementPage.aspx.designer.cs">
+      <DependentUpon>AppointmentsManagementPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentsPage.aspx.cs">
+      <DependentUpon>AppointmentsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppointmentsPage.aspx.designer.cs">
+      <DependentUpon>AppointmentsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerPage.aspx.cs">
+      <DependentUpon>CustomerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPage.aspx.designer.cs">
+      <DependentUpon>CustomerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -167,6 +194,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>
@@ -189,6 +223,13 @@
     </Compile>
     <Compile Include="reset.aspx.designer.cs">
       <DependentUpon>reset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SchedulePage.aspx.cs">
+      <DependentUpon>SchedulePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchedulePage.aspx.designer.cs">
+      <DependentUpon>SchedulePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestDB.aspx.cs">
       <DependentUpon>TestDB.aspx</DependentUpon>

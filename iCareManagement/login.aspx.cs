@@ -20,12 +20,14 @@ namespace iCareManagement
 
         protected void btn_Signin_Click(object sender, EventArgs e)
         {
-            authentication();
+            Response.Redirect("HomePage.aspx");
+
+//            authentication();
         }
 
         protected void btn_Register_Click(object sender, EventArgs e)
         {
-            Server.Transfer("register.aspx");
+            Response.Redirect("register.aspx");
         }
 
         private void authentication()

@@ -5,11 +5,10 @@ $(document).ready(function () {
         $(this).parent('li').addClass('active').siblings().removeClass('active');
         $(this).children('span').addClass('page-active').parent('a').parent('li').siblings().children('a').children('span').removeClass('page-active');
         $(this).children('i').addClass('page-active').parent('a').parent('li').siblings().children('a').children('i').removeClass('page-active');
-        e.preventDefault();
     });
 
     $('.cabinet-sidebar .cabinet-menu li a.btn_Logout').on('click', function (e) {
-        document.location.href = "login.aspx"
+        document.location.href = "login.aspx";
     });
 
     $('.navbar .mp-navbar-right ul li img').on('click', function (e) {

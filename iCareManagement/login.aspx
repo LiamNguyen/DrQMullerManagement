@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="field-pane" style="margin-top: 20px">
                                     <a href="reset.aspx" style="color: purple"><b>Bạn quên tên đăng nhập hoặc mật khẩu?</b></a>
-                                    <asp:Button ID="btn_Signin" runat="server" OnClick="btn_Signin_Click" OnClientClick="return validate();" CssClass="btn btn-primary col-md-6 col-md-offset-3" style="margin-top: 20px" Text="Đăng Nhập" />
+                                    <asp:Button ID="btn_Signin" runat="server" OnClick="btn_Signin_Click" CssClass="btn btn-primary col-md-6 col-md-offset-3" style="margin-top: 20px" Text="Đăng Nhập" />
                                     <asp:Button ID="btn_Register" runat="server" OnClick="btn_Register_Click" CssClass="btn btn-primary col-md-6 col-md-offset-3" style="margin-top: 10px" Text="Đăng Ký" />
                                 </div>
                             </form>

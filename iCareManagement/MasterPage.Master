@@ -1,0 +1,101 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="iCareManagement.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <title>Management Portal</title>
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+
+    <script src="assets/scripts/jquery-1.10.2.min.js"></script>
+    <script src="assets/scripts/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+<form id="form1" runat="server">
+    <!--Nav Bar Top-->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-header">
+            <b>Dr.Q-Muller's Beauty Therapist Centre</b>
+        </div>
+        <div class="mp-navbar-right" style="padding-right: 10px">
+            <ul>
+                <li>
+                    <div class="notification-container">
+                        <p class="notification-icon">2</p>
+                    </div>
+                </li>
+                <li>
+                    <p class="user-profile">Nguyễn Thiên Phúc</p>
+                </li>
+                <li>
+                    <img src="assets/images/account.png" width="70" height="70">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--Side Bar-->
+    <div class="mp-cabinet">
+        <div class="cabinet-sidebar">
+            <asp:Menu
+                ID="SideBar"
+                CssClass="cabinet-menu"
+                runat="server"
+                StaticDisplayLevels="3">
+                <Items>
+                    <asp:MenuItem
+                        Text="Trang chủ"
+                        Value="home"
+                        NavigateUrl="HomePage.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem
+                        Text="Tiếp Nhận Lịch Hẹn"
+                        Value="appointments"
+                        NavigateUrl="AppointmentsPage.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem
+                        Text="Quản Lý Lịch Hẹn"
+                        Value="appointmentsManagement"
+                        NavigateUrl="AppointmentsManagementPage.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem
+                        Text="Quản Lý Liệu Trình"
+                        Value="schedule"
+                        NavigateUrl="SchedulePage.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem
+                        Text="Quản Lý Khách Hàng"
+                        Value="customersManagement"
+                        NavigateUrl="CustomerPage.aspx">
+                    </asp:MenuItem>
+                </Items>
+            </asp:Menu>
+            <div class="logout-container" onclick="logout()">
+                <p>Đăng Thoát</p>
+            </div>
+        </div>
+    </div>
+    <div class="cabinet-sidebar-content">
+        <div class="cabinet-container" style="padding-left: 40px !important">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="assets/scripts/app.js"></script>
+<script src="assets/scripts/datePicker.js"></script>
+<script>
+    function logout() {
+        window.location.href = "login.aspx";
+    }
+</script>
+</body>
+</html>

@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="field-pane">
                                 	<a href="login.aspx" style="color: purple"><b>Bạn đã có tài khoản rồi?</b></a>
-                                    <asp:Button ID="btn_Register" OnClick="btn_Register_Click" OnClientClick="return validate();" CssClass="btn btn-primary col-md-6 col-md-offset-3" style="margin-top: 10px" runat="server" Text="Đăng Ký" />
+                                    <asp:Button ID="btn_Register" OnClick="btn_Register_Click" CssClass="btn btn-primary col-md-6 col-md-offset-3" style="margin-top: 10px" runat="server" Text="Đăng Ký" />
                                 </div>
                             </form>
                         </div>

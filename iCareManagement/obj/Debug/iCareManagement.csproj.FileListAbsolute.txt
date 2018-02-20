@@ -34,3 +34,14 @@ D:\UATiCareManagement\iCareManagement\bin\Newtonsoft.Json.xml
 D:\UATiCareManagement\iCareManagement\obj\Debug\iCareManagement.csprojResolveAssemblyReference.cache
 D:\UATiCareManagement\iCareManagement\obj\Debug\iCareManagement.dll
 D:\UATiCareManagement\iCareManagement\obj\Debug\iCareManagement.pdb
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\bin\iCareManagement.dll.config
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\bin\iCareManagement.dll
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\bin\iCareManagement.pdb
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\bin\Newtonsoft.Json.dll
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\bin\MySql.Data.xml
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\bin\MySql.Web.xml
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\bin\Newtonsoft.Json.xml
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\obj\Debug\iCareManagement.csprojResolveAssemblyReference.cache
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\obj\Debug\iCareManagement.dll
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\obj\Debug\iCareManagement.pdb
+C:\Users\Liam Nguyen\Documents\Projects\DrQMullerManagement\iCareManagement\obj\Debug\iCareManagement.csproj.CoreCompileInputs.cache

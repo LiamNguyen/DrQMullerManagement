@@ -20,7 +20,9 @@ namespace iCareManagement
 
         protected void btn_Register_Click(object sender, EventArgs e)
         {
-            registration();
+            Response.Redirect("HomePage.aspx");
+
+//            registration();
         }
 
         private void registration()

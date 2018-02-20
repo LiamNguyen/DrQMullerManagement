@@ -179,40 +179,66 @@ legend {
 	padding: 0;
 	z-index: 100;
 	text-decoration: none;
+    width: 100%;
 }
 
-.cabinet-menu li {
-	height: 70px;
-	border-radius: 6px;
-    color: black
+.cabinet-menu ul {
+    width: 100% !important;
 }
 
-.cabinet-menu li:hover {
+.cabinet-menu ul li {
+    height: 70px;
+    -ms-border-radius: 6px;
+    border-radius: 6px;
+    color: black;
+    width: 100%;
+}
+
+.cabinet-menu ul li:hover {
 	background-color: #eb99ff;
 }
 
-.cabinet-menu li.active {
+.cabinet-menu ul li a.selected {
+    color: white;
 	background-color: #a300cc;
 }
 
-.cabinet-menu li.separator{
+.cabinet-menu ul li.separator{
 	height: 1.5px !important;
 	background-color: #a2a2c3;
 	box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 0px;
 }
 
-.cabinet-menu li a {
-	display: block;
-	padding-top: 22px;
-	padding-bottom: 20px;
-	text-decoration: none;
+.cabinet-menu ul li a {
+    color: black;
+	display: block !important;
+	padding: 22px 0 20px 15px !important;
+	text-decoration: none !important;
+    font-size: 20px;
 }
 
-.cabinet-menu li a span {
+.cabinet-menu ul li a span {
 	color: black;
 	font-size: 20px;
 	margin-left: 10px;
 	overflow-x: hidden;
+}
+
+.logout-container {
+    height: 70px;
+    -ms-border-radius: 6px;
+    border-radius: 6px;
+    width: 100%;
+    color: black;
+    display: block !important;
+    padding: 22px 0 20px 15px !important;
+    text-decoration: none !important;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.logout-container:hover {
+    background-color: #eb99ff;
 }
 
 .page-active {
@@ -232,14 +258,6 @@ legend {
 
 .cabinet-container {
 	padding:20px;
-}
-
-.cabinet-container-item {
-	display: none;
-}
-
-.cabinet-container-item.active {
-	display: block;
 }
 
 .info-container {
